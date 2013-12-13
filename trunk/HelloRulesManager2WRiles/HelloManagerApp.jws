@@ -18,6 +18,7 @@
    <list n="listOfChildren">
       <hash><url n="URL" path="HelloManagerSoa/HelloManagerSoa.jpr"/></hash>
       <hash><url n="URL" path="HrEmpSDO/HrEmpSDO.jpr"/></hash>
+      <hash><url n="URL" path="RulesSoa/RulesSoa.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
