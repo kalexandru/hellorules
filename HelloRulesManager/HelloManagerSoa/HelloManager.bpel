@@ -53,6 +53,10 @@
                   messageType="ns1:HrEmployeeSDOService_getEmployeesView1"/>
         <variable name="InvokeGetMyData_OutputVariable"
                   messageType="ns1:HrEmployeeSDOService_getEmployeesView1Response"/>
+        <variable name="InvokeGetOthersData_InputVariable"
+                  messageType="ns1:HrEmployeeSDOService_getEmployeesView1"/>
+        <variable name="InvokeGetOthersData_OutputVariable"
+                  messageType="ns1:HrEmployeeSDOService_getEmployeesView1Response"/>
     </variables>
 
     <!-- 
@@ -68,8 +72,15 @@
         <assign name="AssignInputs">
             <copy>
                 <from variable="inputVariable" part="payload"
-                      query="/client:process/client:input"/>
+                      query="/client:process/client:MyEmployeeID"/>
                 <to variable="InvokeGetMyData_InputVariable" part="parameters"
+                    query="/ns2:getEmployeesView1/ns2:employeeId"/>
+            </copy>
+            <copy>
+                <from variable="inputVariable" part="payload"
+                      query="/client:process/client:OtherEmployeeID"/>
+                <to variable="InvokeGetOthersData_InputVariable"
+                    part="parameters"
                     query="/ns2:getEmployeesView1/ns2:employeeId"/>
             </copy>
         </assign>
@@ -79,6 +90,12 @@
                 partnerLink="HrEmployeeSDO"
                 portType="ns1:HrEmployeeSDOService"
                 operation="getEmployeesView1"/>
+        <invoke name="InvokeGetOthersData"
+                inputVariable="InvokeGetOthersData_InputVariable"
+                outputVariable="InvokeGetOthersData_OutputVariable"
+                partnerLink="HrEmployeeSDO"
+                portType="ns1:HrEmployeeSDOService"
+                operation="getEmployeesView1" bpelx:invokeAsDetail="no"/>
         <!-- 
           Asynchronous callback to the requester. (Note: the callback location and correlation id is transparently handled using WS-addressing.)
         -->
