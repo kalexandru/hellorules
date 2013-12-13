@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process name="HelloManager" targetNamespace="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager" xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:client="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager" xmlns:ora="http://schemas.oracle.com/xpath/extension" xmlns:bpelx="http://schemas.oracle.com/bpel/extension" xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/" xmlns:ns1="/model/common/" xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:ns2="/model/common/types/" id="BpPrc0">
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+    <partnerLinks>
+        <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+        <partnerLink name="hellomanager_client" partnerLinkType="client:HelloManager" myRole="HelloManagerProvider" partnerRole="HelloManagerRequester"/>
+        <partnerLink name="HrEmployeeSDO" partnerLinkType="ns1:HrEmployeeSDO" partnerRole="HrEmployeeSDOService"/>
+    </partnerLinks>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VARIABLES                                                        
+        List of messages and XML documents used within this BPEL process 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="inputVariable" messageType="client:HelloManagerRequestMessage"/>
+
+        <!-- Reference to the message that will be sent back to the requester during callback -->
+        <variable name="outputVariable" messageType="client:HelloManagerResponseMessage"/>
+        <variable name="InvokeGetMyData_InputVariable" messageType="ns1:HrEmployeeSDOService_getEmployeesView1"/>
+        <variable name="InvokeGetMyData_OutputVariable" messageType="ns1:HrEmployeeSDOService_getEmployeesView1Response"/>
+    </variables>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC                                               
+       Set of activities coordinating the flow of messages across the    
+       services integrated within this business process                  
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main" id="BpSeq0">
+        <!-- Receive input from requestor. (Note: This maps to operation defined in HelloManager.wsdl) -->
+        <receive name="receiveInput" partnerLink="hellomanager_client" portType="client:HelloManager" operation="process" variable="inputVariable" createInstance="yes" id="BpRcv0"/>
+        <assign name="Assign1" id="BpAss0">
+            <copy>
+                <from variable="inputVariable" part="payload" query="/client:process/client:input"/>
+                <to variable="InvokeGetMyData_InputVariable" part="parameters" query="/ns2:getEmployeesView1/ns2:employeeId"/>
+            </copy>
+        </assign>
+        <invoke name="InvokeGetMyData" bpelx:invokeAsDetail="no" inputVariable="InvokeGetMyData_InputVariable" outputVariable="InvokeGetMyData_OutputVariable" partnerLink="HrEmployeeSDO" portType="ns1:HrEmployeeSDOService" operation="getEmployeesView1" id="BpInv0"/>
+        <!-- 
+          Asynchronous callback to the requester. (Note: the callback location and correlation id is transparently handled using WS-addressing.)
+        -->
+        <invoke name="callbackClient" partnerLink="hellomanager_client" portType="client:HelloManagerCallback" operation="processResponse" inputVariable="outputVariable" id="BpInv1"/>
+    </sequence>
+</process><!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Dec 12 20:28:49 EST 2013
+  Author:  stuart
+  Type: BPEL 1.1 Process
+  Purpose: Asynchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="model.HrEmployeeSDO">
+      <AppModuleConfig name="HrEmployeeSDOLocal" ApplicationName="model.HrEmployeeSDO" DeployPlatform="LOCAL" jbo.project="model.HrEmpSDO">
+         <Security AppModuleJndiName="model.HrEmployeeSDO"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="HrEmployeeSDOShared" ApplicationName="model.HrEmployeeSDO" DeployPlatform="LOCAL" jbo.project="model.HrEmpSDO">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="model.HrEmployeeSDO"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="SI" jbo.project="model.HrEmpSDO" name="HrEmployeeSDOService" ApplicationName="model.HrEmployeeSDO">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="model.HrEmployeeSDO"/>
+         <Custom JDBCDataSource="jdbc/hrDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>
