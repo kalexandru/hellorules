@@ -1,0 +1,24 @@
+Dec 13, 2013 10:13:09 AM oracle.mds
+NOTIFICATION: PManager instance is created without multitenancy support as JVM flag "oracle.multitenant.enabled" is not set to enable multitenancy support.
+Dec 13, 2013 10:13:09 AM oracle.security.jps.internal.config.xml.XmlConfigurationFactory initDefaultConfiguration
+SEVERE: java.io.FileNotFoundException: .\config\jps-config.xml (The system cannot find the path specified)
+Dec 13, 2013 10:13:09 AM oracle.mds
+NOTIFICATION: Auditing is disabled for component MDS.
+Dec 13, 2013 10:13:10 AM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+INFO: XMLSchema incremental build enabled.
+Dec 13, 2013 10:13:10 AM com.collaxa.cube.CubeLogger info
+INFO: validating "HelloManager.bpel" ...
+Dec 13, 2013 10:13:10 AM oracle.integration.platform.blocks.FabricConfigManager <clinit>
+WARNING: JRF is unable to determine the current application server platform.
+Dec 13, 2013 10:13:10 AM oracle.integration.platform.blocks.WLSPlatformConfigurationProvider <clinit>
+WARNING: JRF is unable to determine the current application server platform.
+Dec 13, 2013 10:13:11 AM com.collaxa.cube.CubeLogger info
+INFO: Composed "HelloManager" in 61.3 milliseconds [nodes 8=0+8, 130.5 nodes/sec]
+Dec 13, 2013 10:13:13 AM com.collaxa.cube.CubeLogger info
+INFO: Compiled "HelloManager" in 2.315 seconds
+Dec 13, 2013 10:13:13 AM com.collaxa.cube.CubeLogger info
+INFO: Gathered 3 files in 1.0 milliseconds
+
+Dec 13, 2013 10:13:13 AM com.collaxa.cube.CubeLogger info
+INFO: Packaged "HelloManager" in 10.9 milliseconds
+
