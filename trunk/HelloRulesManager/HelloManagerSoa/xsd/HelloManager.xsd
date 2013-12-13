@@ -6,7 +6,8 @@
 	<element name="process">
 		<complexType>
 			<sequence>
-				<element name="input" type="int"/>
+				<element name="MyEmployeeID" type="int"/>
+                                <element name="OtherEmployeeID" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
