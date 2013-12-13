@@ -65,7 +65,7 @@
     <sequence name="main">
         <!-- Receive input from requestor. (Note: This maps to operation defined in HelloManager.wsdl) -->
         <receive name="receiveInput" partnerLink="hellomanager_client" portType="client:HelloManager" operation="process" variable="inputVariable" createInstance="yes"/>
-        <assign name="Assign1">
+        <assign name="AssignInputs">
             <copy>
                 <from variable="inputVariable" part="payload"
                       query="/client:process/client:input"/>
