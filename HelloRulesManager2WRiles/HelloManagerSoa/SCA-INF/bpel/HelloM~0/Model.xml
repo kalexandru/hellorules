@@ -64,6 +64,14 @@
                 <to variable="Criteria" query="/ns3:criteria/ns3:TopSalary"/>
             </copy>
             <copy>
+                <from variable="InvokeGetMyData_OutputVariable" part="parameters" query="/ns2:getEmployeesView1Response/ns2:result/ns1:Salary"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:MySalary"/>
+            </copy>
+            <copy>
+                <from variable="InvokeGetOthersData_OutputVariable" part="parameters" query="/ns2:getEmployeesView1Response/ns2:result/ns1:Salary"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:OtherSalary"/>
+            </copy>
+            <copy>
                 <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')=bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')"/>
                 <to variable="Criteria" query="/ns3:criteria/ns3:SameDepartment"/>
             </copy>
@@ -80,7 +88,7 @@
                 <to variable="Criteria" query="/ns3:criteria/ns3:HireDatePrior"/>
             </copy>
             <copy>
-                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') >bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary')"/>
+                <from expression="number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') )  > number(bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary'))"/>
                 <to variable="Criteria" query="/ns3:criteria/ns3:SalaryHiger"/>
             </copy>
         </assign>
