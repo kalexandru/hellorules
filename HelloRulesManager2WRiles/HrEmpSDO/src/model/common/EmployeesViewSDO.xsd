@@ -29,6 +29,7 @@
             <xsd:element name="SalaryAverage" type="xsd:decimal" minOccurs="0" nillable="true"/>
             <xsd:element name="CountEmployees" type="xsd:decimal" minOccurs="0" nillable="true"/>
             <xsd:element name="Subordinatecount" type="xsd:decimal" minOccurs="0" nillable="true"/>
+            <xsd:element name="Toptenmin" type="xsd:decimal" minOccurs="0" nillable="true"/>
         </xsd:sequence>
     </xsd:complexType>
     <xsd:element name="employeesViewSDO" type="EmployeesViewSDO"/>

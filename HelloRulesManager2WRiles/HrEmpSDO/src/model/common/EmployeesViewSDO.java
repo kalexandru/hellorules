@@ -1,6 +1,6 @@
 package model.common;
 
-public interface EmployeesViewSDO {
+public interface EmployeesViewSDO extends java.io.Serializable {
 
    public java.lang.Integer getEmployeeId();
 
@@ -65,6 +65,10 @@ public interface EmployeesViewSDO {
    public java.math.BigDecimal getSubordinatecount();
 
    public void setSubordinatecount(java.math.BigDecimal value);
+
+   public java.math.BigDecimal getToptenmin();
+
+   public void setToptenmin(java.math.BigDecimal value);
 
 
 }
