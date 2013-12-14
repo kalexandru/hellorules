@@ -158,20 +158,6 @@
       <Attr Name="_DisplaySize" Value="5"/>
     </DesignTime>
   </Attribute>
-  <AccessorAttribute
-    Name="Employees"
-    Association="model.EmpManagerFkAssoc"
-    AssociationEnd="model.EmpManagerFkAssoc.Employees"
-    AssociationOtherEnd="model.EmpManagerFkAssoc.ManagerIdEmployees"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <AccessorAttribute
-    Name="ManagerIdEmployees"
-    Association="model.EmpManagerFkAssoc"
-    AssociationEnd="model.EmpManagerFkAssoc.ManagerIdEmployees"
-    AssociationOtherEnd="model.EmpManagerFkAssoc.Employees"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
   <Key
     Name="EmpEmailNn">
     <DesignTime>

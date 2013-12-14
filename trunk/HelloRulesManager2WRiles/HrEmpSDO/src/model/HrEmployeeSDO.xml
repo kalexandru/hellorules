@@ -13,15 +13,6 @@
   <ViewUsage
     Name="EmployeesView1"
     ViewObjectName="model.EmployeesView"/>
-  <ViewUsage
-    Name="EmployeesView2"
-    ViewObjectName="model.EmployeesView"/>
-  <ViewLinkUsage
-    Name="EmpManagerFkLink1"
-    ViewLinkObjectName="model.EmpManagerFkLink"
-    SrcViewUsageName="model.HrEmployeeSDO.EmployeesView1"
-    DstViewUsageName="model.HrEmployeeSDO.EmployeesView2"
-    Reversed="false"/>
   <Remote
     Name="ServiceInterface"
     ServerClassName="model.server.serviceinterface.HrEmployeeSDOServiceImpl"

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org"
+            elementFormDefault="qualified">
+  <xsd:element name="criteria">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Top10PercentSalary" type = "xsd:decimal">        </xsd:element>
+        <xsd:element name="TopSalary" type = "xsd:boolean">        </xsd:element>
+        <xsd:element name="SameDepartment" type = "xsd:boolean">        </xsd:element>
+        <xsd:element name="Manager" type = "xsd:boolean">        </xsd:element>
+        <xsd:element name="DirectManager" type = "xsd:boolean">        </xsd:element>
+        <xsd:element name="HireDatePrior" type = "xsd:boolean">        </xsd:element>
+        <xsd:element name="SalaryHiger" type = "xsd:boolean">        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

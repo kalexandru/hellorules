@@ -18,7 +18,17 @@
          xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
          xmlns:ns1="/model/common/"
          xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
-         xmlns:ns2="/model/common/types/">
+         xmlns:ns2="/model/common/types/" xmlns:ns3="http://www.example.org"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
 
     <!-- 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -57,6 +67,7 @@
                   messageType="ns1:HrEmployeeSDOService_getEmployeesView1"/>
         <variable name="InvokeGetOthersData_OutputVariable"
                   messageType="ns1:HrEmployeeSDOService_getEmployeesView1Response"/>
+        <variable name="Criteria" element="ns3:criteria"/>
     </variables>
 
     <!-- 
@@ -96,6 +107,15 @@
                 partnerLink="HrEmployeeSDO"
                 portType="ns1:HrEmployeeSDOService"
                 operation="getEmployeesView1" bpelx:invokeAsDetail="no"/>
+        <assign name="Assign1">
+            <copy>
+                <from variable="InvokeGetMyData_OutputVariable"
+                      part="parameters"
+                      query="/ns2:getEmployeesView1Response/ns2:result/ns1:Salaryalltotal"/>
+                <to variable="Criteria"
+                    query="/ns3:criteria/ns3:Top10PercentSalary"/>
+            </copy>
+        </assign>
         <!-- 
           Asynchronous callback to the requester. (Note: the callback location and correlation id is transparently handled using WS-addressing.)
         -->
