@@ -6,28 +6,35 @@
   Name="EmployeesView"
   Version="11.1.1.64.93"
   InheritPersonalization="true"
-  SelectList="Employees.EMPLOYEE_ID, 
-       Employees.FIRST_NAME, 
-       Employees.LAST_NAME, 
-       Employees.EMAIL, 
-       Employees.PHONE_NUMBER, 
-       Employees.HIRE_DATE, 
-       Employees.JOB_ID, 
-       Employees.SALARY, 
-       Employees.COMMISSION_PCT, 
-       Employees.MANAGER_ID, 
-       Employees.DEPARTMENT_ID"
-  FromList="EMPLOYEES Employees"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full"
   UseGlueCode="false"
   SdoGen="true"
   SdoName="model.common.EmployeesViewSDO"
   SdoNameSpace="/model/common/">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <SQLQuery>
+    <![CDATA[SELECT e.EMPLOYEE_ID, 
+       e.FIRST_NAME, 
+       e.LAST_NAME, 
+       e.EMAIL, 
+       e.PHONE_NUMBER, 
+       e.HIRE_DATE, 
+       e.JOB_ID, 
+       e.SALARY, 
+       e.COMMISSION_PCT, 
+       e.MANAGER_ID, 
+       e.DEPARTMENT_ID, 
+       (select sum(salary)  from employees) AS Salary_All_Total, 
+       (select sum(salary)  from employees where DEPARTMENT_ID = e.DEPARTMENT_ID ) AS Salary_Department_Total, 
+       (select round( avg(salary))  from employees) AS Salary_Average, 
+       (select count(EMPLOYEE_ID)  from employees) AS Emp_Count,
+ ( select count(1) from employees where manager_id = e.employee_id) Subordinate_Count
+FROM EMPLOYEES e]]>
+  </SQLQuery>
   <EntityUsage
     Name="Employees"
     Entity="model.Employees"/>
@@ -103,9 +110,66 @@
     EntityAttrName="DepartmentId"
     EntityUsage="Employees"
     AliasName="DEPARTMENT_ID"/>
-  <ViewLinkAccessor
-    Name="EmployeesView"
-    ViewLink="model.EmpManagerFkLink"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="Salaryalltotal"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SALARY_ALL_TOTAL"
+    Expression="SALARYALLTOTAL"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Salarydepartmenttotal"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SALARY_DEPARTMENT_TOTAL"
+    Expression="SALARYDEPARTMENTTOTAL"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SalaryAverage"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SALARY_AVERAGE"
+    SQLType="NUMERIC"
+    Expression="select round( avg(salary))  from employees"/>
+  <ViewAttribute
+    Name="CountEmployees"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="EMP_COUNT"
+    SQLType="NUMERIC"
+    Expression="select count(EMPLOYEE_ID)  from employees"/>
+  <ViewAttribute
+    Name="Subordinatecount"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SUBORDINATE_COUNT"
+    Expression="SUBORDINATECOUNT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
 </ViewObject>
