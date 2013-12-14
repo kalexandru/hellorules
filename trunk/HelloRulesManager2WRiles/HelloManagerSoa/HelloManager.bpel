@@ -107,13 +107,33 @@
                 partnerLink="HrEmployeeSDO"
                 portType="ns1:HrEmployeeSDOService"
                 operation="getEmployeesView1" bpelx:invokeAsDetail="no"/>
-        <assign name="Assign1">
+        <assign name="AssignCriteria">
             <copy>
-                <from variable="InvokeGetMyData_OutputVariable"
-                      part="parameters"
-                      query="/ns2:getEmployeesView1Response/ns2:result/ns1:Salaryalltotal"/>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') >= bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Toptenmin')"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:TopSalary"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')=bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')"/>
                 <to variable="Criteria"
-                    query="/ns3:criteria/ns3:Top10PercentSalary"/>
+                    query="/ns3:criteria/ns3:SameDepartment"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Subordinatecount') > 0"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:Manager"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:ManagerId') = bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:EmployeeId')"/>
+                <to variable="Criteria"
+                    query="/ns3:criteria/ns3:DirectManager"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:HireDate') &lt; bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:HireDate')"/>
+                <to variable="Criteria"
+                    query="/ns3:criteria/ns3:HireDatePrior"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') >bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary')"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:SalaryHiger"/>
             </copy>
         </assign>
         <!-- 

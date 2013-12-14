@@ -6,7 +6,6 @@
   <xsd:element name="criteria">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="Top10PercentSalary" type = "xsd:decimal">        </xsd:element>
         <xsd:element name="TopSalary" type = "xsd:boolean">        </xsd:element>
         <xsd:element name="SameDepartment" type = "xsd:boolean">        </xsd:element>
         <xsd:element name="Manager" type = "xsd:boolean">        </xsd:element>

@@ -6,7 +6,7 @@ public class EmployeesViewSDOImpl extends SDODataObject implements EmployeesView
 
    public static final int START_PROPERTY_INDEX = 0;
 
-   public static final int END_PROPERTY_INDEX = START_PROPERTY_INDEX + 15;
+   public static final int END_PROPERTY_INDEX = START_PROPERTY_INDEX + 16;
 
    public EmployeesViewSDOImpl() {}
 
@@ -136,6 +136,14 @@ public class EmployeesViewSDOImpl extends SDODataObject implements EmployeesView
 
    public void setSubordinatecount(java.math.BigDecimal value) {
       set(START_PROPERTY_INDEX + 15 , value);
+   }
+
+   public java.math.BigDecimal getToptenmin() {
+      return getBigDecimal(START_PROPERTY_INDEX + 16);
+   }
+
+   public void setToptenmin(java.math.BigDecimal value) {
+      set(START_PROPERTY_INDEX + 16 , value);
    }
 
 
