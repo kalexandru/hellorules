@@ -181,6 +181,15 @@
                 <to variable="Criteria" query="/ns3:criteria/ns3:SalaryHiger"/>
             </copy>
         </assign>
+        <assign name="TransformToHelloRules">
+            <bpelx:annotation>
+                <bpelx:pattern>transformation</bpelx:pattern>
+            </bpelx:annotation>
+            <copy>
+                <from expression="ora:doXSLTransformForDoc('xsl/Transformation_CriteriaToHelloRules.xsl', $Criteria)"/>
+                <to variable="InvokeHelloRules_InputVariable" part="payload"/>
+            </copy>
+        </assign>
         <invoke name="InvokeHelloRules" bpelx:invokeAsDetail="no"
                 inputVariable="InvokeHelloRules_InputVariable"
                 outputVariable="InvokeHelloRules_OutputVariable"
