@@ -28,8 +28,9 @@
     <xsd:simpleType name="GreetingType">
         <xsd:restriction base="xsd:string">
             <xsd:enumeration value="Honorable"/>
+            <xsd:enumeration value="Subordinate Senpai"/>
             <xsd:enumeration value="Senpai"/>
-            <xsd:enumeration value="Kohai"/>
+            <xsd:enumeration value="Kohai"/> 
             <xsd:enumeration value="Teamate"/>
         </xsd:restriction>
     </xsd:simpleType>
