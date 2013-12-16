@@ -3,10 +3,10 @@
             attributeFormDefault="unqualified" 
             elementFormDefault="qualified"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1"
+            xmlns="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1"
             xmlns:bpelpm="http://xmlns.oracle.com/bpel"
-            xmlns:tns="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1"
-            targetNamespace="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1">
+            xmlns:tns="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1"
+            targetNamespace="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1">
 
   <!-- 
     Decision Service type definitions.

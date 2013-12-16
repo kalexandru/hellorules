@@ -1,10 +1,9 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:tns="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bpelpm="http://xmlns.oracle.com/bpel" xmlns:rules="http://xmlns.oracle.com/bpel/rules" xmlns:ns1="http://www.example.org" xmlns:ns2="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager">
-   <import namespace="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager" schemaLocation="HelloManager.xsd"/>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:tns="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bpelpm="http://xmlns.oracle.com/bpel" xmlns:rules="http://xmlns.oracle.com/bpel/rules" xmlns:ns1="http://www.example.org">
    <import namespace="http://www.example.org" schemaLocation="criteria.xsd"/>
    <import namespace="http://xmlns.oracle.com/bpel/rules" schemaLocation="DecisionServicePrimitiveTypes.xsd"/>
    <import namespace="http://xmlns.oracle.com/bpel"/>
-   <include schemaLocation="OracleRuleMaker_DecisionService_1Types.xsd"/>
+   <include schemaLocation="HelloRules_DecisionService_1Types.xsd"/>
    <element name="callFunctionStateless" type="tns:callFunctionStatelessType"/>
    <complexType name="callFunctionStatelessType">
       <sequence>
@@ -42,7 +41,7 @@
    </complexType>
    <complexType name="resultListType">
       <sequence>
-         <element ref="ns2:processResponse"/>
+         <element ref="ns1:Greeting"/>
       </sequence>
    </complexType>
 </schema>
