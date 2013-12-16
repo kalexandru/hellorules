@@ -1,5 +1,7 @@
 package model.common.serviceinterface;
 
+import java.math.BigDecimal;
+
 import java.util.List;
 
 import javax.jws.WebMethod;
@@ -29,6 +31,7 @@ import oracle.webservices.annotations.SDODatabinding;
     wsdlLocation="model/common/serviceinterface/HrEmployeeSDOService.wsdl")
 @SDODatabinding(schemaLocation="model/common/serviceinterface/HrEmployeeSDOService.xsd")
 public interface HrEmployeeSDOService {
+
     public static final String NAME = "{/model/common/}HrEmployeeSDOService";
 
     @WebMethod(action="/model/common/getEmployeesView1", operationName="getEmployeesView1")
@@ -97,4 +100,16 @@ public interface HrEmployeeSDOService {
             name="processData")
         ProcessData processData, @WebParam(mode = WebParam.Mode.IN, name="processControl")
         ProcessControl processControl) throws ServiceException;
+
+    @WebMethod(action="/model/common/findEmployeesView1IamManager",
+        operationName="findEmployeesView1IamManager")
+    @RequestWrapper(targetNamespace="/model/common/types/", localName="findEmployeesView1IamManager")
+    @ResponseWrapper(targetNamespace="/model/common/types/", localName="findEmployeesView1IamManagerResponse")
+    @WebResult(name="result")
+    List<EmployeesViewSDO> findEmployeesView1IamManager(@WebParam(mode = WebParam.Mode.IN,
+            name="findCriteria")
+        FindCriteria findCriteria, @WebParam(mode = WebParam.Mode.IN, name="OtherEmployee")
+        BigDecimal OtherEmployee, @WebParam(mode = WebParam.Mode.IN, name="Me")
+        BigDecimal Me, @WebParam(mode = WebParam.Mode.IN, name="findControl")
+        FindControl findControl) throws ServiceException;
 }

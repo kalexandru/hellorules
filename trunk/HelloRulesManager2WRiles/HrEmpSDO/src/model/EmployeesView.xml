@@ -16,26 +16,34 @@
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="Me"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
+  <Variable
+    Name="OtherEmployee"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Number"/>
   <SQLQuery>
-    <![CDATA[SELECT e.EMPLOYEE_ID, 
-       e.FIRST_NAME, 
-       e.LAST_NAME, 
-       e.EMAIL, 
-       e.PHONE_NUMBER, 
-       e.HIRE_DATE, 
-       e.JOB_ID, 
-       e.SALARY, 
-       e.COMMISSION_PCT, 
-       e.MANAGER_ID, 
-       e.DEPARTMENT_ID, 
-       (select sum(salary)  from employees) AS Salary_All_Total, 
-       (select sum(salary)  from employees where DEPARTMENT_ID = e.DEPARTMENT_ID ) AS Salary_Department_Total, 
-       (select round( avg(salary))  from employees) AS Salary_Average, 
-       (select count(EMPLOYEE_ID)  from employees) AS Emp_Count,
- ( select count(1) from employees where manager_id = e.employee_id) Subordinate_Count ,
+    <![CDATA[SELECT Employees.EMPLOYEE_ID, 
+       Employees.FIRST_NAME, 
+       Employees.LAST_NAME, 
+       Employees.EMAIL, 
+       Employees.PHONE_NUMBER, 
+       Employees.HIRE_DATE, 
+       Employees.JOB_ID, 
+       Employees.SALARY, 
+       Employees.COMMISSION_PCT, 
+       Employees.MANAGER_ID, 
+       Employees.DEPARTMENT_ID,
+       (select sum(salary) from employees ) AS Salary_All_Total, 
+       (select sum(salary) from employees emp where emp.DEPARTMENT_ID = Employees.DEPARTMENT_ID ) AS Salary_Department_Total, 
+       (select round( avg(salary)) from employees) AS Salary_Average, 
+       (select count(EMPLOYEE_ID) from employees) AS Emp_Count,
+ ( select count(1) from employees emp where emp.manager_id = Employees.employee_id) Subordinate_Count ,
 (select min(salary) from employees where salary in ( select SALARY from (select  SALARY,row_number() over(order by SALARY desc nulls last) rnm
 from EMPLOYEES) where rnm<=10 ) ) TopTenMin
-FROM EMPLOYEES e]]>
+FROM EMPLOYEES Employees]]>
   </SQLQuery>
   <EntityUsage
     Name="Employees"
@@ -188,4 +196,53 @@ FROM EMPLOYEES e]]>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewCriteria
+    Name="IamManager"
+    ViewObjectName="model.EmployeesView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow38"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="EmployeeId"
+        ViewAttribute="EmployeeId"
+        Operator="="
+        Conjunction="AND"
+        Value=":OtherEmployee"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+    <ViewCriteriaRow
+      Name="vcrow39"
+      Conjunction="AND"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ManagerId"
+        ViewAttribute="ManagerId"
+        Operator="="
+        Conjunction="AND"
+        Value=":Me"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

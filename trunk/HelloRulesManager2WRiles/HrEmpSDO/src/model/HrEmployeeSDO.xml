@@ -39,6 +39,14 @@
       <Attr Name="_UpdateOpName" Value="updateEmployeesView1"/>
       <Attr Name="_ProcessOpName" Value="processEmployeesView1"/>
       <Attr Name="_CreateOpName" Value="createEmployeesView1"/>
+      <AttrArray Name="_VCFindOps">
+        <Item Value="IamManager"/>
+      </AttrArray>
+      <AttrArray Name="__IamManager">
+        <Item Value="findEmployeesView1IamManager"/>
+        <Item Value="OtherEmployee"/>
+        <Item Value="Me"/>
+      </AttrArray>
     </DesignTime>
   </ServiceViewUsage>
 </AppModule>

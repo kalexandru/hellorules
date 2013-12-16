@@ -117,4 +117,21 @@
             </sequence>
         </complexType>
     </element>
+    <element name="findEmployeesView1IamManager">
+        <complexType>
+            <sequence>
+                <element name="findCriteria" type="ns1:FindCriteria"/>
+                <element name="OtherEmployee" type="decimal"/>
+                <element name="Me" type="decimal"/>
+                <element name="findControl" type="ns1:FindControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findEmployeesView1IamManagerResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:EmployeesViewSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
 </schema>

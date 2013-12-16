@@ -1,6 +1,6 @@
 package model.common;
 
-public interface EmployeesViewSDO extends java.io.Serializable {
+public interface EmployeesViewSDO {
 
    public java.lang.Integer getEmployeeId();
 

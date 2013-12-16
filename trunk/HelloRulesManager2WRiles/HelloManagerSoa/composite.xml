@@ -10,12 +10,16 @@
            xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
            xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
            xmlns:ui="http://xmlns.oracle.com/soa/designer/">
-  <import namespace="/model/common/" location="HrEmployeeSDOService.wsdl"
-          importType="wsdl"/>
   <import namespace="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager"
           location="HelloManager.wsdl" importType="wsdl"/>
   <import namespace="/model/common/" location="HrEmployeeSDOServiceWrapper.wsdl"
           importType="wsdl"/>
+  <import namespace="/model/common/" location="HrEmployeeSDOService.wsdl"
+          importType="wsdl"/>
+  <import namespace="http://xmlns.oracle.com/HelloRules/HelloRulesService"
+          location="HelloRulesService.wsdl" importType="wsdl"/>
+  <import namespace="http://xmlns.oracle.com/HelloRules/HelloRulesService"
+          location="HelloRulesServiceWrapper.wsdl" importType="wsdl"/>
   <service name="hellomanager_client_ep" ui:wsdlLocation="HelloManager.wsdl">
     <interface.wsdl interface="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager#wsdl.interface(HelloManager)"
                     callbackInterface="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager#wsdl.interface(HelloManagerCallback)"/>
@@ -30,7 +34,11 @@
     <property name="bpel.config.oneWayDeliveryPolicy" type="xs:string"
               many="false">async.persist</property>
   </component>
-  <reference name="HrEmployeeSDO" ui:wsdlLocation="HrEmployeeSDOService.wsdl">
+  <component name="HelloRules">
+    <implementation.decision src="HelloRules.decs"/>
+  </component>
+  <reference name="HrEmployeeSDO"
+             ui:wsdlLocation="HrEmployeeSDOService.wsdl">
     <interface.wsdl interface="/model/common/#wsdl.interface(HrEmployeeSDOService)"/>
     <binding.adf serviceName="{/model/common/}HrEmployeeSDOService"
                  registryName="HrEmployeeSDO_JBOServiceRegistry"/>
@@ -42,5 +50,9 @@
   <wire>
     <source.uri>HelloManager/HrEmployeeSDO</source.uri>
     <target.uri>HrEmployeeSDO</target.uri>
+  </wire>
+  <wire>
+    <source.uri>HelloManager/HelloRules.HelloRulesService</source.uri>
+    <target.uri>HelloRules/HelloRulesService</target.uri>
   </wire>
 </composite>
