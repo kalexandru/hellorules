@@ -198,8 +198,7 @@
                 operation="callFunctionStateless"/>
         <assign name="AssignOutput">
             <copy>
-                <from variable="InvokeHelloRules_OutputVariable" part="payload"
-                      query="/ns5:callFunctionStatelessDecision/ns5:resultList/ns3:Greeting/ns3:response"/>
+                <from expression="concat( 'Employee ' ,   string( bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID') ) , ' greets employee ' , string(bpws:getVariableData('inputVariable','payload','/client:process/client:OtherEmployeeID') ) , ' with a greeting of ' ,  bpws:getVariableData('InvokeHelloRules_OutputVariable','payload','/ns5:callFunctionStatelessDecision/ns5:resultList/ns3:Greeting/ns3:response') )"/>
                 <to variable="outputVariable" part="payload"
                     query="/client:processResponse/client:result"/>
             </copy>
