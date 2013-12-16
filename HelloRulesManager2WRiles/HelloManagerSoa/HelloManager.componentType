@@ -12,4 +12,8 @@
              ui:wsdlLocation="HrEmployeeSDOServiceWrapper.wsdl">
     <interface.wsdl interface="/model/common/#wsdl.interface(HrEmployeeSDOService)"/>
   </reference>
+  <reference name="HelloRules.HelloRulesService"
+             ui:wsdlLocation="HelloRulesServiceWrapper.wsdl">
+    <interface.wsdl interface="http://xmlns.oracle.com/HelloRules/HelloRulesService#wsdl.interface(IDecisionService)"/>
+  </reference>
 </componentType>

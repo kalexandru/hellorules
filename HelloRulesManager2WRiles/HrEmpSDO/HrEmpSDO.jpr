@@ -73,6 +73,7 @@
          <string v="ADFbc"/>
          <string v="EJB"/>
          <string v="WebServices"/>
+         <string v="Database"/>
       </list>
    </hash>
    <value n="oracle.jbo.SavedPreferences" v="true"/>

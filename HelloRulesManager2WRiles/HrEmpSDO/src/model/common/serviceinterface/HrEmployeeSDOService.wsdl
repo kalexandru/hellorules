@@ -61,6 +61,12 @@
     <wsdl:message name="HrEmployeeSDOService_processCSEmployeesView1Response">
         <wsdl:part name="parameters" element="types:processCSEmployeesView1Response"/>
     </wsdl:message>
+    <wsdl:message name="HrEmployeeSDOService_findEmployeesView1IamManager">
+        <wsdl:part name="parameters" element="types:findEmployeesView1IamManager"/>
+    </wsdl:message>
+    <wsdl:message name="HrEmployeeSDOService_findEmployeesView1IamManagerResponse">
+        <wsdl:part name="parameters" element="types:findEmployeesView1IamManagerResponse"/>
+    </wsdl:message>
     <wsdl:portType name="HrEmployeeSDOService">
         <wsdl:documentation>
             <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="EmployeesView1" SDOName="tns:EmployeesViewSDO"
@@ -106,6 +112,11 @@
         <wsdl:operation name="processCSEmployeesView1">
             <wsdl:input message="tns:HrEmployeeSDOService_processCSEmployeesView1"/>
             <wsdl:output message="tns:HrEmployeeSDOService_processCSEmployeesView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="findEmployeesView1IamManager">
+            <wsdl:input message="tns:HrEmployeeSDOService_findEmployeesView1IamManager"/>
+            <wsdl:output message="tns:HrEmployeeSDOService_findEmployeesView1IamManagerResponse"/>
             <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
         </wsdl:operation>
     </wsdl:portType>
@@ -197,6 +208,18 @@
         </wsdl:operation>
         <wsdl:operation name="processCSEmployeesView1">
             <soap:operation soapAction="/model/common/processCSEmployeesView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="findEmployeesView1IamManager">
+            <soap:operation soapAction="/model/common/findEmployeesView1IamManager"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

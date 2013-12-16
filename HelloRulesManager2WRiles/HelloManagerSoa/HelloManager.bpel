@@ -28,7 +28,10 @@
          xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
          xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
          xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
-         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+         xmlns:ns4="http://xmlns.oracle.com/adf/svc/types/"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:ns5="http://xmlns.oracle.com/HelloRules/HelloRulesService">
 
     <!-- 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,6 +48,9 @@
         <partnerLink name="hellomanager_client" partnerLinkType="client:HelloManager" myRole="HelloManagerProvider" partnerRole="HelloManagerRequester"/>
         <partnerLink name="HrEmployeeSDO" partnerLinkType="ns1:HrEmployeeSDO"
                      partnerRole="HrEmployeeSDOService"/>
+        <partnerLink name="HelloRules.HelloRulesService"
+                     partnerLinkType="ns5:HelloRules.HelloRulesService"
+                     partnerRole="IDecisionService"/>
     </partnerLinks>
 
     <!-- 
@@ -68,6 +74,15 @@
         <variable name="InvokeGetOthersData_OutputVariable"
                   messageType="ns1:HrEmployeeSDOService_getEmployeesView1Response"/>
         <variable name="Criteria" element="ns3:criteria"/>
+        <variable name="Invoke_findEmployeesView1IamManager_InputVariable"
+                  messageType="ns1:HrEmployeeSDOService_findEmployeesView1IamManager"/>
+        <variable name="Invoke_findEmployeesView1IamManager_OutputVariable"
+                  messageType="ns1:HrEmployeeSDOService_findEmployeesView1IamManagerResponse"/>
+        <variable name="IsManagerOf" type="xsd:int"/>
+        <variable name="InvokeHelloRules_InputVariable"
+                  messageType="ns5:callFunctionStatelessMessage"/>
+        <variable name="InvokeHelloRules_OutputVariable"
+                  messageType="ns5:callFunctionStatelessDecisionMessage"/>
     </variables>
 
     <!-- 
@@ -107,27 +122,45 @@
                 partnerLink="HrEmployeeSDO"
                 portType="ns1:HrEmployeeSDOService"
                 operation="getEmployeesView1" bpelx:invokeAsDetail="no"/>
+        <assign name="AssignIsManagerOf">
+            <copy>
+                <from expression="number(  bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID') )"/>
+                <to variable="Invoke_findEmployeesView1IamManager_InputVariable"
+                    part="parameters"
+                    query="/ns2:findEmployeesView1IamManager/ns2:Me"/>
+            </copy>
+            <copy>
+                <from expression="number( bpws:getVariableData('inputVariable','payload','/client:process/client:OtherEmployeeID') )"/>
+                <to variable="Invoke_findEmployeesView1IamManager_InputVariable"
+                    part="parameters"
+                    query="/ns2:findEmployeesView1IamManager/ns2:OtherEmployee"/>
+            </copy>
+        </assign>
+        <invoke name="InvokeIsSubordinate" bpelx:invokeAsDetail="no"
+                inputVariable="Invoke_findEmployeesView1IamManager_InputVariable"
+                outputVariable="Invoke_findEmployeesView1IamManager_OutputVariable"
+                partnerLink="HrEmployeeSDO"
+                portType="ns1:HrEmployeeSDOService"
+                operation="findEmployeesView1IamManager"/>
+        <assign name="IsManagerCount">
+            <copy>
+                <from expression="count (bpws:getVariableData('Invoke_findEmployeesView1IamManager_OutputVariable','parameters','/ns2:findEmployeesView1IamManagerResponse/ns2:result') )"/>
+                <to variable="IsManagerOf"/>
+            </copy>
+        </assign>
         <assign name="AssignCriteria">
             <copy>
                 <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') >= bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Toptenmin')"/>
                 <to variable="Criteria" query="/ns3:criteria/ns3:TopSalary"/>
             </copy>
             <copy>
-                <from variable="InvokeGetMyData_OutputVariable"
-                      part="parameters"
-                      query="/ns2:getEmployeesView1Response/ns2:result/ns1:Salary"/>
-                <to variable="Criteria" query="/ns3:criteria/ns3:MySalary"/>
-            </copy>
-            <copy>
-                <from variable="InvokeGetOthersData_OutputVariable"
-                      part="parameters"
-                      query="/ns2:getEmployeesView1Response/ns2:result/ns1:Salary"/>
-                <to variable="Criteria" query="/ns3:criteria/ns3:OtherSalary"/>
-            </copy>
-            <copy>
                 <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')=bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')"/>
                 <to variable="Criteria"
                     query="/ns3:criteria/ns3:SameDepartment"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('IsManagerOf') >0"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:Subordinate"/>
             </copy>
             <copy>
                 <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Subordinatecount') > 0"/>
@@ -146,6 +179,20 @@
             <copy>
                 <from expression="number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') )  > number(bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary'))"/>
                 <to variable="Criteria" query="/ns3:criteria/ns3:SalaryHiger"/>
+            </copy>
+        </assign>
+        <invoke name="InvokeHelloRules" bpelx:invokeAsDetail="no"
+                inputVariable="InvokeHelloRules_InputVariable"
+                outputVariable="InvokeHelloRules_OutputVariable"
+                partnerLink="HelloRules.HelloRulesService"
+                portType="ns5:IDecisionService"
+                operation="callFunctionStateless"/>
+        <assign name="AssignOutput">
+            <copy>
+                <from variable="InvokeHelloRules_OutputVariable" part="payload"
+                      query="/ns5:callFunctionStatelessDecision/ns5:resultList/ns3:Greeting/ns3:response"/>
+                <to variable="outputVariable" part="payload"
+                    query="/client:processResponse/client:result"/>
             </copy>
         </assign>
         <!-- 
