@@ -150,7 +150,7 @@
         </assign>
         <assign name="AssignCriteria">
             <copy>
-                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') >= bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Toptenmin')"/>
+                <from expression="number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') ) > number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Toptenmin') )"/>
                 <to variable="Criteria" query="/ns3:criteria/ns3:TopSalary"/>
             </copy>
             <copy>
