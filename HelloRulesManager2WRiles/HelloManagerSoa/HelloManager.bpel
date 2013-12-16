@@ -159,7 +159,7 @@
                     query="/ns3:criteria/ns3:SameDepartment"/>
             </copy>
             <copy>
-                <from expression="bpws:getVariableData('IsManagerOf') >0"/>
+                <from expression="number(bpws:getVariableData('IsManagerOf')) >0"/>
                 <to variable="Criteria" query="/ns3:criteria/ns3:Subordinate"/>
             </copy>
             <copy>
@@ -167,7 +167,7 @@
                 <to variable="Criteria" query="/ns3:criteria/ns3:Manager"/>
             </copy>
             <copy>
-                <from expression="bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:ManagerId') = bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:EmployeeId')"/>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:ManagerId') = bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID')"/>
                 <to variable="Criteria"
                     query="/ns3:criteria/ns3:DirectManager"/>
             </copy>
@@ -198,7 +198,7 @@
                 operation="callFunctionStateless"/>
         <assign name="AssignOutput">
             <copy>
-                <from expression="concat( 'Employee ' ,   string( bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID') ) , ' greets employee ' , string(bpws:getVariableData('inputVariable','payload','/client:process/client:OtherEmployeeID') ) , ' with a greeting of ' ,  bpws:getVariableData('InvokeHelloRules_OutputVariable','payload','/ns5:callFunctionStatelessDecision/ns5:resultList/ns3:Greeting/ns3:response') )"/>
+                <from expression="concat( 'Employee ' ,   string( bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID') ) , ' greets employee ' , string(bpws:getVariableData('inputVariable','payload','/client:process/client:OtherEmployeeID') ) , ' with:   ' ,  bpws:getVariableData('InvokeHelloRules_OutputVariable','payload','/ns5:callFunctionStatelessDecision/ns5:resultList/ns3:Greeting/ns3:response')   , '  '    )"/>
                 <to variable="outputVariable" part="payload"
                     query="/client:processResponse/client:result"/>
             </copy>

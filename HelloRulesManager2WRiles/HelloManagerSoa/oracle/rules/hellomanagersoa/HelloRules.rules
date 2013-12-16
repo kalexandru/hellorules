@@ -543,14 +543,14 @@
                 </Modifiers>
             </Constructor>
             <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
-            <ValidationUpdateNumber>4</ValidationUpdateNumber>
+            <ValidationUpdateNumber>48</ValidationUpdateNumber>
             <Source>xsd/criteria.xsd</Source>
             <IsArray>false</IsArray>
             <IDofArrayComponentType>B}nil</IDofArrayComponentType>
             <SupportXPath>false</SupportXPath>
             <IsInterface>false</IsInterface>
-            <Modifiers id="L}10">
-                <CreationUpdateNumber>4</CreationUpdateNumber>
+            <Modifiers id="L}272">
+                <CreationUpdateNumber>48</CreationUpdateNumber>
                 <Access>1</Access>
                 <isStatic>false</isStatic>
                 <isFinal>false</isFinal>
@@ -615,14 +615,14 @@
                 </Modifiers>
             </Constructor>
             <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
-            <ValidationUpdateNumber>4</ValidationUpdateNumber>
+            <ValidationUpdateNumber>48</ValidationUpdateNumber>
             <Source>xsd/criteria.xsd</Source>
             <IsArray>false</IsArray>
             <IDofArrayComponentType>B}nil</IDofArrayComponentType>
             <SupportXPath>false</SupportXPath>
             <IsInterface>false</IsInterface>
-            <Modifiers id="L}59">
-                <CreationUpdateNumber>4</CreationUpdateNumber>
+            <Modifiers id="L}273">
+                <CreationUpdateNumber>48</CreationUpdateNumber>
                 <Access>1</Access>
                 <isStatic>false</isStatic>
                 <isFinal>false</isFinal>
@@ -709,14 +709,14 @@
                 </Modifiers>
             </Constructor>
             <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
-            <ValidationUpdateNumber>4</ValidationUpdateNumber>
+            <ValidationUpdateNumber>48</ValidationUpdateNumber>
             <Source>xsd/criteria.xsd</Source>
             <IsArray>false</IsArray>
             <IDofArrayComponentType>B}nil</IDofArrayComponentType>
             <SupportXPath>false</SupportXPath>
             <IsInterface>false</IsInterface>
-            <Modifiers id="L}67">
-                <CreationUpdateNumber>4</CreationUpdateNumber>
+            <Modifiers id="L}274">
+                <CreationUpdateNumber>48</CreationUpdateNumber>
                 <Access>1</Access>
                 <isStatic>false</isStatic>
                 <isFinal>false</isFinal>
@@ -735,26 +735,6 @@
             <Alias>GreetingType</Alias>
             <Visible>false</Visible>
             <CreationUpdateNumber>4</CreationUpdateNumber>
-            <Field id="J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE">
-                <Name>HONORABLE</Name>
-                <Alias>HONORABLE</Alias>
-                <Visible>true</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <IDofType>J}org.example.GreetingType</IDofType>
-                <ListContentID>B}nil</ListContentID>
-                <Type>GreetingType</Type>
-                <IDofBucketSet>B}nil</IDofBucketSet>
-                <Final>true</Final>
-                <Static>true</Static>
-                <Modifiers id="L}105">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
-                    <Access>1</Access>
-                    <isStatic>true</isStatic>
-                    <isFinal>true</isFinal>
-                    <isAbstract>false</isAbstract>
-                </Modifiers>
-                <Enum>true</Enum>
-            </Field>
             <Field id="J}public static final org.example.GreetingType org.example.GreetingType.SUBORDINATE_SENPAI">
                 <Name>SUBORDINATE_SENPAI</Name>
                 <Alias>SUBORDINATE_SENPAI</Alias>
@@ -875,6 +855,48 @@
                 </Modifiers>
                 <Enum>true</Enum>
             </Field>
+            <Field id="J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_SENPAI">
+                <Name>HONORABLE_SENPAI</Name>
+                <Alias>HONORABLE_SENPAI</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>48</CreationUpdateNumber>
+                <IDofType>J}org.example.GreetingType</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>GreetingType</Type>
+                <IDofBucketSet>G}36d4474c:142fd15e64b:-7bfc</IDofBucketSet>
+                <BucketSet>GreetingType</BucketSet>
+                <Final>true</Final>
+                <Static>true</Static>
+                <Modifiers id="L}279">
+                    <CreationUpdateNumber>48</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>true</isStatic>
+                    <isFinal>true</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Enum>true</Enum>
+            </Field>
+            <Field id="J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_KOHAI">
+                <Name>HONORABLE_KOHAI</Name>
+                <Alias>HONORABLE_KOHAI</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>48</CreationUpdateNumber>
+                <IDofType>J}org.example.GreetingType</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>GreetingType</Type>
+                <IDofBucketSet>G}36d4474c:142fd15e64b:-7bfc</IDofBucketSet>
+                <BucketSet>GreetingType</BucketSet>
+                <Final>true</Final>
+                <Static>true</Static>
+                <Modifiers id="L}281">
+                    <CreationUpdateNumber>48</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>true</isStatic>
+                    <isFinal>true</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Enum>true</Enum>
+            </Field>
             <Property id="J}org.example.GreetingType.{declaringClass}">
                 <Name>declaringClass</Name>
                 <Alias>declaringClass</Alias>
@@ -909,23 +931,6 @@
                 <Static>false</Static>
                 <IDofType>J}java.lang.String</IDofType>
                 <Type>String</Type>
-                <IDofBucketSet>B}nil</IDofBucketSet>
-            </Method>
-            <Method id="J}public static org.example.GreetingType[] org.example.GreetingType.values()">
-                <Name>values</Name>
-                <Alias>values</Alias>
-                <Visible>false</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <Modifiers id="L}80">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
-                    <Access>1</Access>
-                    <isStatic>true</isStatic>
-                    <isFinal>false</isFinal>
-                    <isAbstract>false</isAbstract>
-                </Modifiers>
-                <Static>true</Static>
-                <IDofType>J}[Lorg.example.GreetingType;</IDofType>
-                <Type>GreetingType[]</Type>
                 <IDofBucketSet>B}nil</IDofBucketSet>
             </Method>
             <Method id="J}public static org.example.GreetingType org.example.GreetingType.valueOf(java.lang.String)">
@@ -1145,15 +1150,32 @@
                 <Type>int</Type>
                 <IDofBucketSet>B}nil</IDofBucketSet>
             </Method>
+            <Method id="J}public static org.example.GreetingType[] org.example.GreetingType.values()">
+                <Name>values</Name>
+                <Alias>values</Alias>
+                <Visible>false</Visible>
+                <CreationUpdateNumber>48</CreationUpdateNumber>
+                <Modifiers id="L}286">
+                    <CreationUpdateNumber>48</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>true</isStatic>
+                    <isFinal>false</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Static>true</Static>
+                <IDofType>J}[Lorg.example.GreetingType;</IDofType>
+                <Type>GreetingType[]</Type>
+                <IDofBucketSet>B}nil</IDofBucketSet>
+            </Method>
             <IDofSuperClass>J}java.lang.Enum</IDofSuperClass>
-            <ValidationUpdateNumber>4</ValidationUpdateNumber>
+            <ValidationUpdateNumber>48</ValidationUpdateNumber>
             <Source>xsd/criteria.xsd</Source>
             <IsArray>false</IsArray>
             <IDofArrayComponentType>B}nil</IDofArrayComponentType>
             <SupportXPath>false</SupportXPath>
             <IsInterface>false</IsInterface>
-            <Modifiers id="L}76">
-                <CreationUpdateNumber>4</CreationUpdateNumber>
+            <Modifiers id="L}284">
+                <CreationUpdateNumber>48</CreationUpdateNumber>
                 <Access>1</Access>
                 <isStatic>false</isStatic>
                 <isFinal>true</isFinal>
@@ -1177,22 +1199,6 @@
             <ListContentID>B}nil</ListContentID>
             <Type>GreetingType</Type>
             <Form>Enum</Form>
-            <Bucket id="G}36d4474c:142fd15e64b:-7bfa">
-                <Name>GreetingType.HONORABLE</Name>
-                <Alias>HONORABLE</Alias>
-                <Visible>true</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <Inclusive>false</Inclusive>
-                <Otherwise>false</Otherwise>
-                <Excluded>false</Excluded>
-                <Expression id="L}120">
-                    <Value>GreetingType.HONORABLE</Value>
-                    <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE`</ResolvedValue>
-                    <IsConstant>true</IsConstant>
-                    <ParameterID>B}nil</ParameterID>
-                    <Customizable>false</Customizable>
-                </Expression>
-            </Bucket>
             <Bucket id="G}36d4474c:142fd15e64b:-7bf9">
                 <Name>GreetingType.SUBORDINATE_SENPAI</Name>
                 <Alias>SUBORDINATE_SENPAI</Alias>
@@ -1305,9 +1311,41 @@
                     <Customizable>false</Customizable>
                 </Expression>
             </Bucket>
+            <Bucket id="G}36d4474c:142fd15e64b:-7be0">
+                <Name>GreetingType.HONORABLE_SENPAI</Name>
+                <Alias>HONORABLE_SENPAI</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>48</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}282">
+                    <Value>GreetingType.HONORABLE_SENPAI</Value>
+                    <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_SENPAI`</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
+            <Bucket id="G}36d4474c:142fd15e64b:-7bdf">
+                <Name>GreetingType.HONORABLE_KOHAI</Name>
+                <Alias>HONORABLE_KOHAI</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>48</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}283">
+                    <Value>GreetingType.HONORABLE_KOHAI</Value>
+                    <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_KOHAI`</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
             <CalendarForm>Date</CalendarForm>
             <Excluded>false</Excluded>
-            <ValidationUpdateNumber>4</ValidationUpdateNumber>
+            <ValidationUpdateNumber>48</ValidationUpdateNumber>
         </BucketSet>
         <SupportsXPathEnabled>false</SupportsXPathEnabled>
         <DecisionFunction id="G}36d4474c:142fd15e64b:-7bf1">
@@ -1353,21 +1391,21 @@
             <RuleFiringLimit>10000</RuleFiringLimit>
             <RuleFiringLimitError>true</RuleFiringLimitError>
         </DecisionFunction>
-        <UpdateNumber>12</UpdateNumber>
-        <ValidationUpdateNumber>33</ValidationUpdateNumber>
+        <UpdateNumber>48</UpdateNumber>
+        <ValidationUpdateNumber>48</ValidationUpdateNumber>
         <UpdateTime>-9223372036854775808</UpdateTime>
     </DataModel>
     <RuleSet id="G}36d4474c:142fd15e64b:-7bf2">
         <Name>GreetingRuleSet</Name>
         <Alias>GreetingRuleSet</Alias>
-        <ValidationUpdateNumber>46</ValidationUpdateNumber>
+        <ValidationUpdateNumber>50</ValidationUpdateNumber>
         <Customizable>true</Customizable>
         <Active>true</Active>
         <CalendarForm>DateTime</CalendarForm>
         <RuleSheet id="G}36d4474c:142fd15e64b:-7bed">
             <Name>HelloRules</Name>
             <Alias>HelloRules</Alias>
-            <ValidationUpdateNumber>46</ValidationUpdateNumber>
+            <ValidationUpdateNumber>50</ValidationUpdateNumber>
             <Priority>medium</Priority>
             <Customizable>true</Customizable>
             <Active>true</Active>
@@ -1448,7 +1486,7 @@
                     <BucketIDTable></BucketIDTable>
                     <Values>-</Values>
                     <ParentDimensionNode>L}141</ParentDimensionNode>
-                    <ChildDimensionNodes>L}177</ChildDimensionNodes>
+                    <ChildDimensionNodes>L}177 L}261</ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}158">
                     <BucketIDTable>B}bbtrue</BucketIDTable>
@@ -1497,10 +1535,16 @@
                 <Customizable>false</Customizable>
                 <IDofSharedBucketSet>B}bbs</IDofSharedBucketSet>
                 <DimensionNode id="L}177">
-                    <BucketIDTable></BucketIDTable>
-                    <Values>-</Values>
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
                     <ParentDimensionNode>L}157</ParentDimensionNode>
                     <ChildDimensionNodes>L}203</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}261">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}157</ParentDimensionNode>
+                    <ChildDimensionNodes>L}262</ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}178">
                     <BucketIDTable>B}bbtrue</BucketIDTable>
@@ -1558,6 +1602,12 @@
                     <BucketIDTable></BucketIDTable>
                     <Values>-</Values>
                     <ParentDimensionNode>L}177</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}262">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}261</ParentDimensionNode>
                     <ChildDimensionNodes></ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}204">
@@ -1632,8 +1682,20 @@
                 <DTActionNode id="L}232">
                     <Selected>true</Selected>
                     <Expression id="L}245">
-                        <Value>GreetingType.HONORABLE</Value>
-                        <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE`</ResolvedValue>
+                        <Value>GreetingType.HONORABLE_SENPAI</Value>
+                        <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_SENPAI`</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>response</ParameterAlias>
+                        <ParameterID>J}org.example.Greeting.{response}</ParameterID>
+                        <DTActionParameterName>response</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}264">
+                    <Selected>true</Selected>
+                    <Expression id="L}267">
+                        <Value>GreetingType.HONORABLE_KOHAI</Value>
+                        <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_KOHAI`</ResolvedValue>
                         <IsConstant>false</IsConstant>
                         <ParameterAlias>response</ParameterAlias>
                         <ParameterID>J}org.example.Greeting.{response}</ParameterID>
@@ -1710,6 +1772,14 @@
                 <RunAfter></RunAfter>
                 <CreationUpdateNumber>12</CreationUpdateNumber>
             </DTRule>
+            <DTRule id="L}263">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>47</CreationUpdateNumber>
+            </DTRule>
             <DTRule id="L}150">
                 <Override></Override>
                 <RunBefore></RunBefore>
@@ -1757,7 +1827,7 @@
         <VisibilityFilterEnabled>false</VisibilityFilterEnabled>
         <CreationUpdateNumber>4</CreationUpdateNumber>
     </RuleSet>
-    <ValidationUpdateNumber>46</ValidationUpdateNumber>
-    <UpdateNumber>46</UpdateNumber>
+    <ValidationUpdateNumber>50</ValidationUpdateNumber>
+    <UpdateNumber>50</UpdateNumber>
     <ResourceBundle>HelloRulesTranslations</ResourceBundle>
 </RuleDictionary>
