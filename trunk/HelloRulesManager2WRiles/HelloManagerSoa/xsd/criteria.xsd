@@ -9,7 +9,6 @@
         <xsd:element name="TopSalary" type = "xsd:boolean">        </xsd:element>
         <xsd:element name="SameDepartment" type = "xsd:boolean">        </xsd:element>
         <xsd:element name="Manager" type = "xsd:boolean">        </xsd:element>
-        <xsd:element name="DirectManager" type = "xsd:boolean">        </xsd:element>
         <xsd:element name="HireDatePrior" type = "xsd:boolean">        </xsd:element>
         <xsd:element name="SalaryHiger" type = "xsd:boolean">        </xsd:element>
         <xsd:element name="MySalary" type = "xsd:decimal">        </xsd:element>
