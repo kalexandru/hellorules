@@ -1,0 +1,43 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="HelloManager"
+     targetNamespace="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager"
+     xmlns:ns1="http://www.example.org"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:client="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="HelloManager">
+        <plnk:role name="HelloManagerProvider">
+            <plnk:portType name="client:HelloManager"/>
+        </plnk:role>
+        <plnk:role name="HelloManagerRequester">
+            <plnk:portType name="client:HelloManagerCallback"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager"
+                 schemaLocation="xsd/HelloManager.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.org" schemaLocation="xsd/criteria.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="HelloManagerRequestMessage">
+        <wsdl:part name="payload" element="client:process"/>
+    </wsdl:message>
+    <wsdl:message name="HelloManagerResponseMessage">
+        <wsdl:part name="payload" element="client:processResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="HelloManager">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:HelloManagerRequestMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="HelloManagerCallback">
+        <wsdl:operation name="processResponse">
+            <wsdl:input message="client:HelloManagerResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

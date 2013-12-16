@@ -1,0 +1,18 @@
+1.  Rules:
+
+1. Same/Other Department
+Same:       Hello name
+Other:      Hello Department.name
+
+2. Higher/Lower Salary
+Higher:     Hello Superior Name
+Lower:      Hello Inferior Name
+
+3. Earlier/later Hire Date / 
+Earlier:    Hello Superior Name
+Lower:      Hello Inferior Name
+
+4. Direct/Other Manager manager
+Direct:    Hello Superior Name
+Other:      Hello Inferior Name
+ 

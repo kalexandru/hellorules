@@ -1,0 +1,211 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Dec 12 20:28:49 EST 2013
+  Author:  stuart
+  Type: BPEL 1.1 Process
+  Purpose: Asynchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="HelloManager"
+         targetNamespace="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager"
+         xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:client="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:ns1="/model/common/"
+         xmlns:bpel2="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns2="/model/common/types/" xmlns:ns3="http://www.example.org"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+         xmlns:ns4="http://xmlns.oracle.com/adf/svc/types/"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:ns5="http://xmlns.oracle.com/HelloRules/HelloRulesService">
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+    <partnerLinks>
+        <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+        <partnerLink name="hellomanager_client" partnerLinkType="client:HelloManager" myRole="HelloManagerProvider" partnerRole="HelloManagerRequester"/>
+        <partnerLink name="HrEmployeeSDO" partnerLinkType="ns1:HrEmployeeSDO"
+                     partnerRole="HrEmployeeSDOService"/>
+        <partnerLink name="HelloRules.HelloRulesService"
+                     partnerLinkType="ns5:HelloRules.HelloRulesService"
+                     partnerRole="IDecisionService"/>
+    </partnerLinks>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VARIABLES                                                        
+        List of messages and XML documents used within this BPEL process 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="inputVariable" messageType="client:HelloManagerRequestMessage"/>
+
+        <!-- Reference to the message that will be sent back to the requester during callback -->
+        <variable name="outputVariable" messageType="client:HelloManagerResponseMessage"/>
+        <variable name="InvokeGetMyData_InputVariable"
+                  messageType="ns1:HrEmployeeSDOService_getEmployeesView1"/>
+        <variable name="InvokeGetMyData_OutputVariable"
+                  messageType="ns1:HrEmployeeSDOService_getEmployeesView1Response"/>
+        <variable name="InvokeGetOthersData_InputVariable"
+                  messageType="ns1:HrEmployeeSDOService_getEmployeesView1"/>
+        <variable name="InvokeGetOthersData_OutputVariable"
+                  messageType="ns1:HrEmployeeSDOService_getEmployeesView1Response"/>
+        <variable name="Criteria" element="ns3:criteria"/>
+        <variable name="Invoke_findEmployeesView1IamManager_InputVariable"
+                  messageType="ns1:HrEmployeeSDOService_findEmployeesView1IamManager"/>
+        <variable name="Invoke_findEmployeesView1IamManager_OutputVariable"
+                  messageType="ns1:HrEmployeeSDOService_findEmployeesView1IamManagerResponse"/>
+        <variable name="IsManagerOf" type="xsd:int"/>
+        <variable name="InvokeHelloRules_InputVariable"
+                  messageType="ns5:callFunctionStatelessMessage"/>
+        <variable name="InvokeHelloRules_OutputVariable"
+                  messageType="ns5:callFunctionStatelessDecisionMessage"/>
+    </variables>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC                                               
+       Set of activities coordinating the flow of messages across the    
+       services integrated within this business process                  
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main">
+        <!-- Receive input from requestor. (Note: This maps to operation defined in HelloManager.wsdl) -->
+        <receive name="receiveInput" partnerLink="hellomanager_client" portType="client:HelloManager" operation="process" variable="inputVariable" createInstance="yes"/>
+        <assign name="AssignInputs">
+            <copy>
+                <from variable="inputVariable" part="payload"
+                      query="/client:process/client:MyEmployeeID"/>
+                <to variable="InvokeGetMyData_InputVariable" part="parameters"
+                    query="/ns2:getEmployeesView1/ns2:employeeId"/>
+            </copy>
+            <copy>
+                <from variable="inputVariable" part="payload"
+                      query="/client:process/client:OtherEmployeeID"/>
+                <to variable="InvokeGetOthersData_InputVariable"
+                    part="parameters"
+                    query="/ns2:getEmployeesView1/ns2:employeeId"/>
+            </copy>
+        </assign>
+        <invoke name="InvokeGetMyData" bpelx:invokeAsDetail="no"
+                inputVariable="InvokeGetMyData_InputVariable"
+                outputVariable="InvokeGetMyData_OutputVariable"
+                partnerLink="HrEmployeeSDO"
+                portType="ns1:HrEmployeeSDOService"
+                operation="getEmployeesView1"/>
+        <invoke name="InvokeGetOthersData"
+                inputVariable="InvokeGetOthersData_InputVariable"
+                outputVariable="InvokeGetOthersData_OutputVariable"
+                partnerLink="HrEmployeeSDO"
+                portType="ns1:HrEmployeeSDOService"
+                operation="getEmployeesView1" bpelx:invokeAsDetail="no"/>
+        <assign name="AssignIsManagerOf">
+            <copy>
+                <from expression="number(  bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID') )"/>
+                <to variable="Invoke_findEmployeesView1IamManager_InputVariable"
+                    part="parameters"
+                    query="/ns2:findEmployeesView1IamManager/ns2:Me"/>
+            </copy>
+            <copy>
+                <from expression="number( bpws:getVariableData('inputVariable','payload','/client:process/client:OtherEmployeeID') )"/>
+                <to variable="Invoke_findEmployeesView1IamManager_InputVariable"
+                    part="parameters"
+                    query="/ns2:findEmployeesView1IamManager/ns2:OtherEmployee"/>
+            </copy>
+        </assign>
+        <invoke name="InvokeIsSubordinate" bpelx:invokeAsDetail="no"
+                inputVariable="Invoke_findEmployeesView1IamManager_InputVariable"
+                outputVariable="Invoke_findEmployeesView1IamManager_OutputVariable"
+                partnerLink="HrEmployeeSDO"
+                portType="ns1:HrEmployeeSDOService"
+                operation="findEmployeesView1IamManager"/>
+        <assign name="IsManagerCount">
+            <copy>
+                <from expression="count (bpws:getVariableData('Invoke_findEmployeesView1IamManager_OutputVariable','parameters','/ns2:findEmployeesView1IamManagerResponse/ns2:result') )"/>
+                <to variable="IsManagerOf"/>
+            </copy>
+        </assign>
+        <assign name="AssignCriteria">
+            <copy>
+                <from expression="number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') ) > number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Toptenmin') )"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:TopSalary"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')=bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')"/>
+                <to variable="Criteria"
+                    query="/ns3:criteria/ns3:SameDepartment"/>
+            </copy>
+            <copy>
+                <from expression="number(bpws:getVariableData('IsManagerOf')) >0"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:Subordinate"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Subordinatecount') > 0"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:Manager"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:ManagerId') = bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID')"/>
+                <to variable="Criteria"
+                    query="/ns3:criteria/ns3:DirectManager"/>
+            </copy>
+            <copy>
+                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:HireDate') &lt; bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:HireDate')"/>
+                <to variable="Criteria"
+                    query="/ns3:criteria/ns3:HireDatePrior"/>
+            </copy>
+            <copy>
+                <from expression="number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') )  > number(bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary'))"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:SalaryHiger"/>
+            </copy>
+        </assign>
+        <assign name="TransformToHelloRules">
+            <bpelx:annotation>
+                <bpelx:pattern>transformation</bpelx:pattern>
+            </bpelx:annotation>
+            <copy>
+                <from expression="ora:doXSLTransformForDoc('xsl/Transformation_CriteriaToHelloRules.xsl', $Criteria)"/>
+                <to variable="InvokeHelloRules_InputVariable" part="payload"/>
+            </copy>
+        </assign>
+        <invoke name="InvokeHelloRules" bpelx:invokeAsDetail="no"
+                inputVariable="InvokeHelloRules_InputVariable"
+                outputVariable="InvokeHelloRules_OutputVariable"
+                partnerLink="HelloRules.HelloRulesService"
+                portType="ns5:IDecisionService"
+                operation="callFunctionStateless"/>
+        <assign name="AssignOutput">
+            <copy>
+                <from expression="concat( 'Employee ' ,   string( bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID') ) , ' greets employee ' , string(bpws:getVariableData('inputVariable','payload','/client:process/client:OtherEmployeeID') ) , ' with:   ' ,  bpws:getVariableData('InvokeHelloRules_OutputVariable','payload','/ns5:callFunctionStatelessDecision/ns5:resultList/ns3:Greeting/ns3:response')   , '  '    )"/>
+                <to variable="outputVariable" part="payload"
+                    query="/client:processResponse/client:result"/>
+            </copy>
+        </assign>
+        <!-- 
+          Asynchronous callback to the requester. (Note: the callback location and correlation id is transparently handled using WS-addressing.)
+        -->
+        <invoke name="callbackClient" partnerLink="hellomanager_client" portType="client:HelloManagerCallback" operation="processResponse" inputVariable="outputVariable"/>
+    </sequence>
+</process>
