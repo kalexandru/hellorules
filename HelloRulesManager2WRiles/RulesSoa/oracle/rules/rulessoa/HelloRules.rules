@@ -1187,7 +1187,7 @@
             <RuleFiringLimit>10000</RuleFiringLimit>
             <RuleFiringLimitError>true</RuleFiringLimitError>
         </DecisionFunction>
-        <UpdateNumber>8</UpdateNumber>
+        <UpdateNumber>59</UpdateNumber>
         <ValidationUpdateNumber>-1</ValidationUpdateNumber>
         <UpdateTime>-9223372036854775808</UpdateTime>
     </DataModel>
@@ -1208,7 +1208,8 @@
             <CalendarForm>DateTime</CalendarForm>
             <Pattern id="L}120">
                 <Form>Fact Type</Form>
-                <IDofFactType>B}nil</IDofFactType>
+                <FactType>criteria</FactType>
+                <IDofFactType>J}org.example.Criteria</IDofFactType>
                 <Connective>&amp;&amp;</Connective>
                 <TestForm>Simple</TestForm>
                 <Expression id="L}121">
@@ -1217,11 +1218,279 @@
                     <Customizable>false</Customizable>
                 </Expression>
                 <Operator>(for each case where)</Operator>
+                <FactPath>criteria</FactPath>
+                <FactPathIDs>L}120</FactPathIDs>
             </Pattern>
             <ShowPatterns>false</ShowPatterns>
             <TreeMode>false</TreeMode>
             <Visible>true</Visible>
             <Logical>false</Logical>
+            <Dimension id="L}123">
+                <Value>criteria.topSalary</Value>
+                <ResolvedValue>`L}120`.`J}org.example.Criteria.{topSalary}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>B}bbs</IDofSharedBucketSet>
+                <DimensionNode id="L}124">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>B}nil</ParentDimensionNode>
+                    <ChildDimensionNodes>L}294</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}336">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>B}nil</ParentDimensionNode>
+                    <ChildDimensionNodes>L}337 L}344</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}5ee1e192:142fbe3f8a8:-7c34">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>11</CreationUpdateNumber>
+                    <IDofType>J}java.util.Calendar</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>Calendar</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}5ee1e192:142fbe3f8a8:-7c33">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>11</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}127">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>11</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>boolean</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}293">
+                <Value>criteria.sameDepartment</Value>
+                <ResolvedValue>`L}120`.`J}org.example.Criteria.{sameDepartment}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>B}bbs</IDofSharedBucketSet>
+                <DimensionNode id="L}294">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}124</ParentDimensionNode>
+                    <ChildDimensionNodes>L}309</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}337">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}336</ParentDimensionNode>
+                    <ChildDimensionNodes>L}338 L}349</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}344">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}336</ParentDimensionNode>
+                    <ChildDimensionNodes>L}345 L}353</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}5ee1e192:142fbe3f8a8:-7c29">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>59</CreationUpdateNumber>
+                    <IDofType>J}org.example.Criteria</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>criteria</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}5ee1e192:142fbe3f8a8:-7c28">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>59</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}297">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>boolean</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}308">
+                <Value>criteria.manager</Value>
+                <ResolvedValue>`L}120`.`J}org.example.Criteria.{manager}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>B}bbs</IDofSharedBucketSet>
+                <DimensionNode id="L}309">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}294</ParentDimensionNode>
+                    <ChildDimensionNodes>L}358</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}338">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}337</ParentDimensionNode>
+                    <ChildDimensionNodes>L}359</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}349">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}337</ParentDimensionNode>
+                    <ChildDimensionNodes>L}360</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}345">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}344</ParentDimensionNode>
+                    <ChildDimensionNodes>L}361</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}353">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}344</ParentDimensionNode>
+                    <ChildDimensionNodes>L}362</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}5ee1e192:142fbe3f8a8:-7c27">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>64</CreationUpdateNumber>
+                    <IDofType>J}org.example.Criteria</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>criteria</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}5ee1e192:142fbe3f8a8:-7c26">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>64</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}311">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>boolean</SharedBucketSet>
+            </Dimension>
+            <Dimension id="L}357">
+                <Value>criteria.hireDatePrior</Value>
+                <ResolvedValue>`L}120`.`J}org.example.Criteria.{hireDatePrior}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>B}bbs</IDofSharedBucketSet>
+                <DimensionNode id="L}358">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}309</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}359">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}338</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}360">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}349</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}361">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}345</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}362">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}353</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}5ee1e192:142fbe3f8a8:-7c25">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>74</CreationUpdateNumber>
+                    <IDofType>J}org.example.Criteria</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>criteria</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}5ee1e192:142fbe3f8a8:-7c24">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>74</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}363">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>boolean</SharedBucketSet>
+            </Dimension>
+            <DTRule id="L}125">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>11</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}339">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>69</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}350">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>72</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}346">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>71</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}354">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>73</CreationUpdateNumber>
+            </DTRule>
             <AllowGaps>true</AllowGaps>
             <ConflictPolicy>manual</ConflictPolicy>
             <OrderRulesByBucket>true</OrderRulesByBucket>
@@ -1230,6 +1499,6 @@
         <CreationUpdateNumber>4</CreationUpdateNumber>
     </RuleSet>
     <ValidationUpdateNumber>-1</ValidationUpdateNumber>
-    <UpdateNumber>10</UpdateNumber>
+    <UpdateNumber>82</UpdateNumber>
     <ResourceBundle>HelloRulesTranslations</ResourceBundle>
 </RuleDictionary>
