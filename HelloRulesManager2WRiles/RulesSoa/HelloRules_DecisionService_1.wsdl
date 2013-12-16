@@ -1,8 +1,8 @@
 <wsdl:definitions
-     name="OracleRuleMaker_DecisionService_1"
-     targetNamespace="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1"
+     name="HelloRules_DecisionService_1"
+     targetNamespace="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1"
      xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
-     xmlns:tns="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1"
+     xmlns:tns="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
      xmlns:java="http://schemas.xmlsoap.org/wsdl/java/"
      xmlns:format="http://schemas.xmlsoap.org/wsdl/formatbinding/"
@@ -12,8 +12,8 @@
      xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
     >
     <wsdl:types>
-        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1">
-            <include schemaLocation="xsd/OracleRuleMaker_DecisionService_1MessageTypes.xsd"/>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1">
+            <include schemaLocation="xsd/HelloRules_DecisionService_1MessageTypes.xsd"/>
         </schema>
     </wsdl:types>
     <wsdl:message name="callFunctionStatelessMessage">

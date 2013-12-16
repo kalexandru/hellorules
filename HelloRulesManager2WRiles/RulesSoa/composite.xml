@@ -10,10 +10,19 @@
            xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
            xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
            xmlns:ui="http://xmlns.oracle.com/soa/designer/">
-  <import namespace="http://xmlns.oracle.com/OracleRuleMaker/OracleRuleMaker_DecisionService_1"
-          location="OracleRuleMaker_DecisionService_1.wsdl" importType="wsdl"/>
+  <import namespace="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1"
+          location="HelloRules_DecisionService_1.wsdl" importType="wsdl"/>
+  <service name="HelloRules_DecisionService_1_ep"
+           ui:wsdlLocation="HelloRules_DecisionService_1.wsdl">
+    <interface.wsdl interface="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1#wsdl.interface(IDecisionService)"/>
+    <binding.ws port="http://xmlns.oracle.com/HelloRules/HelloRules_DecisionService_1#wsdl.endpoint(HelloRules_DecisionService_1_ep/IDecisionService_pt)"/>
+  </service>
   <property name="productVersion" type="xs:string" many="false">11.1.1.7.0</property>
-  <component name="OracleRuleMaker">
-    <implementation.decision src="OracleRuleMaker.decs"/>
+  <component name="HelloRules">
+    <implementation.decision src="HelloRules.decs"/>
   </component>
+  <wire>
+    <source.uri>HelloRules_DecisionService_1_ep</source.uri>
+    <target.uri>HelloRules/HelloRules_DecisionService_1</target.uri>
+  </wire>
 </composite>
