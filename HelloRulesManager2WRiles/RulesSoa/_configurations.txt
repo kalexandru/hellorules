@@ -1,18 +1,15 @@
-1.  Rules:
 
-1. Same/Other Department
-Same:       Hello name
-Other:      Hello Department.name
+Hello World Using Oracle Rules
 
-2. Higher/Lower Salary
-Higher:     Hello Superior Name
-Lower:      Hello Inferior Name
+A lesson in convuluted Business logic (and planning)
 
-3. Earlier/later Hire Date / 
-Earlier:    Hello Superior Name
-Lower:      Hello Inferior Name
 
-4. Direct/Other Manager manager
-Direct:    Hello Superior Name
-Other:      Hello Inferior Name
- 
+1. Top 10 Salary
+
+2. I am in the top 10 Salary
+
+3. Same Department
+
+4. Manager/Subordinate
+
+5. Hire Date Prior/after
