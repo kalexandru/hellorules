@@ -150,13 +150,18 @@
         </assign>
         <assign name="AssignCriteria">
             <copy>
-                <from expression="number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') ) > number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Toptenmin') )"/>
-                <to variable="Criteria" query="/ns3:criteria/ns3:TopSalary"/>
-            </copy>
-            <copy>
                 <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')=bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:DepartmentId')"/>
                 <to variable="Criteria"
                     query="/ns3:criteria/ns3:SameDepartment"/>
+            </copy>
+            <copy>
+                <from expression="number( bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') ) >= number( bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Toptenmin') )"/>
+                <to variable="Criteria" query="/ns3:criteria/ns3:MeTopSalary"/>
+            </copy>
+            <copy>
+                <from expression="number( bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Salary') ) >= number (bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:Toptenmin') )"/>
+                <to variable="Criteria"
+                    query="/ns3:criteria/ns3:OtherTopSalary"/>
             </copy>
             <copy>
                 <from expression="number(bpws:getVariableData('IsManagerOf')) >0"/>

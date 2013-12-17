@@ -71,44 +71,6 @@
                 </Expression>
                 <PrimaryKey>false</PrimaryKey>
             </Property>
-            <Property id="J}org.example.Criteria.{mySalary}">
-                <Name>mySalary</Name>
-                <Alias>mySalary</Alias>
-                <Visible>true</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <IDofType>J}java.math.BigDecimal</IDofType>
-                <ListContentID>B}nil</ListContentID>
-                <Type>BigDecimal</Type>
-                <IDofBucketSet>B}nil</IDofBucketSet>
-                <Writable>true</Writable>
-                <Readable>true</Readable>
-                <Local>true</Local>
-                <Expression id="L}52">
-                    <IsConstant>false</IsConstant>
-                    <ParameterID>B}nil</ParameterID>
-                    <Customizable>false</Customizable>
-                </Expression>
-                <PrimaryKey>false</PrimaryKey>
-            </Property>
-            <Property id="J}org.example.Criteria.{otherSalary}">
-                <Name>otherSalary</Name>
-                <Alias>otherSalary</Alias>
-                <Visible>true</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <IDofType>J}java.math.BigDecimal</IDofType>
-                <ListContentID>B}nil</ListContentID>
-                <Type>BigDecimal</Type>
-                <IDofBucketSet>B}nil</IDofBucketSet>
-                <Writable>true</Writable>
-                <Readable>true</Readable>
-                <Local>true</Local>
-                <Expression id="L}53">
-                    <IsConstant>false</IsConstant>
-                    <ParameterID>B}nil</ParameterID>
-                    <Customizable>false</Customizable>
-                </Expression>
-                <PrimaryKey>false</PrimaryKey>
-            </Property>
             <Property id="J}org.example.Criteria.{salaryHiger}">
                 <Name>salaryHiger</Name>
                 <Alias>salaryHiger</Alias>
@@ -169,11 +131,11 @@
                 </Expression>
                 <PrimaryKey>false</PrimaryKey>
             </Property>
-            <Property id="J}org.example.Criteria.{topSalary}">
-                <Name>topSalary</Name>
-                <Alias>topSalary</Alias>
+            <Property id="J}org.example.Criteria.{meTopSalary}">
+                <Name>meTopSalary</Name>
+                <Alias>meTopSalary</Alias>
                 <Visible>true</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
                 <IDofType>J}boolean</IDofType>
                 <ListContentID>B}nil</ListContentID>
                 <Type>boolean</Type>
@@ -182,7 +144,27 @@
                 <Writable>true</Writable>
                 <Readable>true</Readable>
                 <Local>true</Local>
-                <Expression id="L}57">
+                <Expression id="L}299">
+                    <IsConstant>false</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+                <PrimaryKey>false</PrimaryKey>
+            </Property>
+            <Property id="J}org.example.Criteria.{otherTopSalary}">
+                <Name>otherTopSalary</Name>
+                <Alias>otherTopSalary</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
+                <IDofType>J}boolean</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>boolean</Type>
+                <IDofBucketSet>B}bbs</IDofBucketSet>
+                <BucketSet>boolean</BucketSet>
+                <Writable>true</Writable>
+                <Readable>true</Readable>
+                <Local>true</Local>
+                <Expression id="L}300">
                     <IsConstant>false</IsConstant>
                     <ParameterID>B}nil</ParameterID>
                     <Customizable>false</Customizable>
@@ -199,44 +181,6 @@
                     <IDsOfType>J}boolean</IDsOfType>
                 </OverloadedParameter>
                 <Modifiers id="L}14">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
-                    <Access>1</Access>
-                    <isStatic>false</isStatic>
-                    <isFinal>false</isFinal>
-                    <isAbstract>false</isAbstract>
-                </Modifiers>
-                <Static>false</Static>
-                <IDofType>J}void</IDofType>
-                <Type>void</Type>
-                <IDofBucketSet>B}nil</IDofBucketSet>
-            </Method>
-            <Method id="J}public boolean org.example.Criteria.isTopSalary()">
-                <Name>isTopSalary</Name>
-                <Alias>isTopSalary</Alias>
-                <Visible>false</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <Modifiers id="L}16">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
-                    <Access>1</Access>
-                    <isStatic>false</isStatic>
-                    <isFinal>false</isFinal>
-                    <isAbstract>false</isAbstract>
-                </Modifiers>
-                <Static>false</Static>
-                <IDofType>J}boolean</IDofType>
-                <Type>boolean</Type>
-                <IDofBucketSet>B}nil</IDofBucketSet>
-            </Method>
-            <Method id="J}public void org.example.Criteria.setTopSalary(boolean)">
-                <Name>setTopSalary</Name>
-                <Alias>setTopSalary</Alias>
-                <Visible>false</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <OverloadedParameter id="G}36d4474c:142fd15e64b:-7c0c">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
-                    <IDsOfType>J}boolean</IDsOfType>
-                </OverloadedParameter>
-                <Modifiers id="L}18">
                     <CreationUpdateNumber>4</CreationUpdateNumber>
                     <Access>1</Access>
                     <isStatic>false</isStatic>
@@ -455,34 +399,34 @@
                 <Type>void</Type>
                 <IDofBucketSet>B}nil</IDofBucketSet>
             </Method>
-            <Method id="J}public java.math.BigDecimal org.example.Criteria.getMySalary()">
-                <Name>getMySalary</Name>
-                <Alias>getMySalary</Alias>
+            <Method id="J}public boolean org.example.Criteria.isMeTopSalary()">
+                <Name>isMeTopSalary</Name>
+                <Alias>isMeTopSalary</Alias>
                 <Visible>false</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <Modifiers id="L}42">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
+                <Modifiers id="L}292">
+                    <CreationUpdateNumber>51</CreationUpdateNumber>
                     <Access>1</Access>
                     <isStatic>false</isStatic>
                     <isFinal>false</isFinal>
                     <isAbstract>false</isAbstract>
                 </Modifiers>
                 <Static>false</Static>
-                <IDofType>J}java.math.BigDecimal</IDofType>
-                <Type>BigDecimal</Type>
+                <IDofType>J}boolean</IDofType>
+                <Type>boolean</Type>
                 <IDofBucketSet>B}nil</IDofBucketSet>
             </Method>
-            <Method id="J}public void org.example.Criteria.setMySalary(java.math.BigDecimal)">
-                <Name>setMySalary</Name>
-                <Alias>setMySalary</Alias>
+            <Method id="J}public void org.example.Criteria.setMeTopSalary(boolean)">
+                <Name>setMeTopSalary</Name>
+                <Alias>setMeTopSalary</Alias>
                 <Visible>false</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <OverloadedParameter id="G}36d4474c:142fd15e64b:-7c06">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
-                    <IDsOfType>J}java.math.BigDecimal</IDsOfType>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
+                <OverloadedParameter id="G}56e63e85:142fe5ec329:-7c37">
+                    <CreationUpdateNumber>51</CreationUpdateNumber>
+                    <IDsOfType>J}boolean</IDsOfType>
                 </OverloadedParameter>
-                <Modifiers id="L}44">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Modifiers id="L}294">
+                    <CreationUpdateNumber>51</CreationUpdateNumber>
                     <Access>1</Access>
                     <isStatic>false</isStatic>
                     <isFinal>false</isFinal>
@@ -493,34 +437,34 @@
                 <Type>void</Type>
                 <IDofBucketSet>B}nil</IDofBucketSet>
             </Method>
-            <Method id="J}public java.math.BigDecimal org.example.Criteria.getOtherSalary()">
-                <Name>getOtherSalary</Name>
-                <Alias>getOtherSalary</Alias>
+            <Method id="J}public boolean org.example.Criteria.isOtherTopSalary()">
+                <Name>isOtherTopSalary</Name>
+                <Alias>isOtherTopSalary</Alias>
                 <Visible>false</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <Modifiers id="L}46">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
+                <Modifiers id="L}296">
+                    <CreationUpdateNumber>51</CreationUpdateNumber>
                     <Access>1</Access>
                     <isStatic>false</isStatic>
                     <isFinal>false</isFinal>
                     <isAbstract>false</isAbstract>
                 </Modifiers>
                 <Static>false</Static>
-                <IDofType>J}java.math.BigDecimal</IDofType>
-                <Type>BigDecimal</Type>
+                <IDofType>J}boolean</IDofType>
+                <Type>boolean</Type>
                 <IDofBucketSet>B}nil</IDofBucketSet>
             </Method>
-            <Method id="J}public void org.example.Criteria.setOtherSalary(java.math.BigDecimal)">
-                <Name>setOtherSalary</Name>
-                <Alias>setOtherSalary</Alias>
+            <Method id="J}public void org.example.Criteria.setOtherTopSalary(boolean)">
+                <Name>setOtherTopSalary</Name>
+                <Alias>setOtherTopSalary</Alias>
                 <Visible>false</Visible>
-                <CreationUpdateNumber>4</CreationUpdateNumber>
-                <OverloadedParameter id="G}36d4474c:142fd15e64b:-7c05">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
-                    <IDsOfType>J}java.math.BigDecimal</IDsOfType>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
+                <OverloadedParameter id="G}56e63e85:142fe5ec329:-7c36">
+                    <CreationUpdateNumber>51</CreationUpdateNumber>
+                    <IDsOfType>J}boolean</IDsOfType>
                 </OverloadedParameter>
-                <Modifiers id="L}48">
-                    <CreationUpdateNumber>4</CreationUpdateNumber>
+                <Modifiers id="L}298">
+                    <CreationUpdateNumber>51</CreationUpdateNumber>
                     <Access>1</Access>
                     <isStatic>false</isStatic>
                     <isFinal>false</isFinal>
@@ -543,14 +487,14 @@
                 </Modifiers>
             </Constructor>
             <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
-            <ValidationUpdateNumber>48</ValidationUpdateNumber>
+            <ValidationUpdateNumber>53</ValidationUpdateNumber>
             <Source>xsd/criteria.xsd</Source>
             <IsArray>false</IsArray>
             <IDofArrayComponentType>B}nil</IDofArrayComponentType>
             <SupportXPath>false</SupportXPath>
             <IsInterface>false</IsInterface>
-            <Modifiers id="L}272">
-                <CreationUpdateNumber>48</CreationUpdateNumber>
+            <Modifiers id="L}325">
+                <CreationUpdateNumber>53</CreationUpdateNumber>
                 <Access>1</Access>
                 <isStatic>false</isStatic>
                 <isFinal>false</isFinal>
@@ -615,14 +559,14 @@
                 </Modifiers>
             </Constructor>
             <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
-            <ValidationUpdateNumber>48</ValidationUpdateNumber>
+            <ValidationUpdateNumber>53</ValidationUpdateNumber>
             <Source>xsd/criteria.xsd</Source>
             <IsArray>false</IsArray>
             <IDofArrayComponentType>B}nil</IDofArrayComponentType>
             <SupportXPath>false</SupportXPath>
             <IsInterface>false</IsInterface>
-            <Modifiers id="L}273">
-                <CreationUpdateNumber>48</CreationUpdateNumber>
+            <Modifiers id="L}326">
+                <CreationUpdateNumber>53</CreationUpdateNumber>
                 <Access>1</Access>
                 <isStatic>false</isStatic>
                 <isFinal>false</isFinal>
@@ -709,14 +653,14 @@
                 </Modifiers>
             </Constructor>
             <IDofSuperClass>J}java.lang.Object</IDofSuperClass>
-            <ValidationUpdateNumber>48</ValidationUpdateNumber>
+            <ValidationUpdateNumber>53</ValidationUpdateNumber>
             <Source>xsd/criteria.xsd</Source>
             <IsArray>false</IsArray>
             <IDofArrayComponentType>B}nil</IDofArrayComponentType>
             <SupportXPath>false</SupportXPath>
             <IsInterface>false</IsInterface>
-            <Modifiers id="L}274">
-                <CreationUpdateNumber>48</CreationUpdateNumber>
+            <Modifiers id="L}327">
+                <CreationUpdateNumber>53</CreationUpdateNumber>
                 <Access>1</Access>
                 <isStatic>false</isStatic>
                 <isFinal>false</isFinal>
@@ -890,6 +834,27 @@
                 <Static>true</Static>
                 <Modifiers id="L}281">
                     <CreationUpdateNumber>48</CreationUpdateNumber>
+                    <Access>1</Access>
+                    <isStatic>true</isStatic>
+                    <isFinal>true</isFinal>
+                    <isAbstract>false</isAbstract>
+                </Modifiers>
+                <Enum>true</Enum>
+            </Field>
+            <Field id="J}public static final org.example.GreetingType org.example.GreetingType.SUBORDINATE">
+                <Name>SUBORDINATE</Name>
+                <Alias>SUBORDINATE</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
+                <IDofType>J}org.example.GreetingType</IDofType>
+                <ListContentID>B}nil</ListContentID>
+                <Type>GreetingType</Type>
+                <IDofBucketSet>G}36d4474c:142fd15e64b:-7bfc</IDofBucketSet>
+                <BucketSet>GreetingType</BucketSet>
+                <Final>true</Final>
+                <Static>true</Static>
+                <Modifiers id="L}307">
+                    <CreationUpdateNumber>51</CreationUpdateNumber>
                     <Access>1</Access>
                     <isStatic>true</isStatic>
                     <isFinal>true</isFinal>
@@ -1154,9 +1119,9 @@
                 <Name>values</Name>
                 <Alias>values</Alias>
                 <Visible>false</Visible>
-                <CreationUpdateNumber>48</CreationUpdateNumber>
-                <Modifiers id="L}286">
-                    <CreationUpdateNumber>48</CreationUpdateNumber>
+                <CreationUpdateNumber>53</CreationUpdateNumber>
+                <Modifiers id="L}333">
+                    <CreationUpdateNumber>53</CreationUpdateNumber>
                     <Access>1</Access>
                     <isStatic>true</isStatic>
                     <isFinal>false</isFinal>
@@ -1168,14 +1133,14 @@
                 <IDofBucketSet>B}nil</IDofBucketSet>
             </Method>
             <IDofSuperClass>J}java.lang.Enum</IDofSuperClass>
-            <ValidationUpdateNumber>48</ValidationUpdateNumber>
+            <ValidationUpdateNumber>53</ValidationUpdateNumber>
             <Source>xsd/criteria.xsd</Source>
             <IsArray>false</IsArray>
             <IDofArrayComponentType>B}nil</IDofArrayComponentType>
             <SupportXPath>false</SupportXPath>
             <IsInterface>false</IsInterface>
-            <Modifiers id="L}284">
-                <CreationUpdateNumber>48</CreationUpdateNumber>
+            <Modifiers id="L}331">
+                <CreationUpdateNumber>53</CreationUpdateNumber>
                 <Access>1</Access>
                 <isStatic>false</isStatic>
                 <isFinal>true</isFinal>
@@ -1343,9 +1308,25 @@
                     <Customizable>false</Customizable>
                 </Expression>
             </Bucket>
+            <Bucket id="G}56e63e85:142fe5ec329:-7c35">
+                <Name>GreetingType.SUBORDINATE</Name>
+                <Alias>SUBORDINATE</Alias>
+                <Visible>true</Visible>
+                <CreationUpdateNumber>51</CreationUpdateNumber>
+                <Inclusive>false</Inclusive>
+                <Otherwise>false</Otherwise>
+                <Excluded>false</Excluded>
+                <Expression id="L}308">
+                    <Value>GreetingType.SUBORDINATE</Value>
+                    <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.SUBORDINATE`</ResolvedValue>
+                    <IsConstant>true</IsConstant>
+                    <ParameterID>B}nil</ParameterID>
+                    <Customizable>false</Customizable>
+                </Expression>
+            </Bucket>
             <CalendarForm>Date</CalendarForm>
             <Excluded>false</Excluded>
-            <ValidationUpdateNumber>48</ValidationUpdateNumber>
+            <ValidationUpdateNumber>51</ValidationUpdateNumber>
         </BucketSet>
         <SupportsXPathEnabled>false</SupportsXPathEnabled>
         <DecisionFunction id="G}36d4474c:142fd15e64b:-7bf1">
@@ -1391,21 +1372,21 @@
             <RuleFiringLimit>10000</RuleFiringLimit>
             <RuleFiringLimitError>true</RuleFiringLimitError>
         </DecisionFunction>
-        <UpdateNumber>48</UpdateNumber>
-        <ValidationUpdateNumber>48</ValidationUpdateNumber>
+        <UpdateNumber>54</UpdateNumber>
+        <ValidationUpdateNumber>54</ValidationUpdateNumber>
         <UpdateTime>-9223372036854775808</UpdateTime>
     </DataModel>
     <RuleSet id="G}36d4474c:142fd15e64b:-7bf2">
         <Name>GreetingRuleSet</Name>
         <Alias>GreetingRuleSet</Alias>
-        <ValidationUpdateNumber>50</ValidationUpdateNumber>
+        <ValidationUpdateNumber>66</ValidationUpdateNumber>
         <Customizable>true</Customizable>
         <Active>true</Active>
         <CalendarForm>DateTime</CalendarForm>
         <RuleSheet id="G}36d4474c:142fd15e64b:-7bed">
             <Name>HelloRules</Name>
             <Alias>HelloRules</Alias>
-            <ValidationUpdateNumber>50</ValidationUpdateNumber>
+            <ValidationUpdateNumber>66</ValidationUpdateNumber>
             <Priority>medium</Priority>
             <Customizable>true</Customizable>
             <Active>true</Active>
@@ -1430,8 +1411,8 @@
             <Visible>true</Visible>
             <Logical>false</Logical>
             <Dimension id="L}140">
-                <Value>criteria.topSalary</Value>
-                <ResolvedValue>`L}134`.`J}org.example.Criteria.{topSalary}`</ResolvedValue>
+                <Value>criteria.otherTopSalary</Value>
+                <ResolvedValue>`L}134`.`J}org.example.Criteria.{otherTopSalary}`</ResolvedValue>
                 <IsConstant>false</IsConstant>
                 <ParameterID>B}nil</ParameterID>
                 <Customizable>false</Customizable>
@@ -1440,13 +1421,13 @@
                     <BucketIDTable>B}bbtrue</BucketIDTable>
                     <Values>true</Values>
                     <ParentDimensionNode>B}nil</ParentDimensionNode>
-                    <ChildDimensionNodes>L}157</ChildDimensionNodes>
+                    <ChildDimensionNodes>L}340</ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}149">
                     <BucketIDTable>B}bbfalse</BucketIDTable>
                     <Values>false</Values>
                     <ParentDimensionNode>B}nil</ParentDimensionNode>
-                    <ChildDimensionNodes>L}158 L}168</ChildDimensionNodes>
+                    <ChildDimensionNodes>L}354 L}368</ChildDimensionNodes>
                 </DimensionNode>
                 <PrivateBucketSet id="G}36d4474c:142fd15e64b:-7bec">
                     <Visible>true</Visible>
@@ -1475,6 +1456,58 @@
                 </PrivateBucketSet>
                 <SharedBucketSet>boolean</SharedBucketSet>
             </Dimension>
+            <Dimension id="L}339">
+                <Value>criteria.meTopSalary</Value>
+                <ResolvedValue>`L}134`.`J}org.example.Criteria.{meTopSalary}`</ResolvedValue>
+                <IsConstant>false</IsConstant>
+                <ParameterID>B}nil</ParameterID>
+                <Customizable>false</Customizable>
+                <IDofSharedBucketSet>B}bbs</IDofSharedBucketSet>
+                <DimensionNode id="L}340">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}141</ParentDimensionNode>
+                    <ChildDimensionNodes>L}157</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}354">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}149</ParentDimensionNode>
+                    <ChildDimensionNodes>L}158</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}368">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}149</ParentDimensionNode>
+                    <ChildDimensionNodes>L}369 L}384</ChildDimensionNodes>
+                </DimensionNode>
+                <PrivateBucketSet id="G}56e63e85:142fe5ec329:-7c34">
+                    <Visible>true</Visible>
+                    <CreationUpdateNumber>55</CreationUpdateNumber>
+                    <IDofType>J}org.example.Criteria</IDofType>
+                    <ListContentID>B}nil</ListContentID>
+                    <Type>criteria</Type>
+                    <Form>Default</Form>
+                    <Bucket id="G}56e63e85:142fe5ec329:-7c33">
+                        <Name>otherwise</Name>
+                        <Alias>otherwise</Alias>
+                        <Visible>true</Visible>
+                        <CreationUpdateNumber>55</CreationUpdateNumber>
+                        <Inclusive>true</Inclusive>
+                        <Otherwise>true</Otherwise>
+                        <Excluded>false</Excluded>
+                        <Expression id="L}341">
+                            <IsConstant>true</IsConstant>
+                            <ParameterID>B}nil</ParameterID>
+                            <Customizable>false</Customizable>
+                        </Expression>
+                    </Bucket>
+                    <CalendarForm>Date</CalendarForm>
+                    <Excluded>false</Excluded>
+                    <ValidationUpdateNumber>-1</ValidationUpdateNumber>
+                </PrivateBucketSet>
+                <SharedBucketSet>boolean</SharedBucketSet>
+            </Dimension>
             <Dimension id="L}156">
                 <Value>criteria.sameDepartment</Value>
                 <ResolvedValue>`L}134`.`J}org.example.Criteria.{sameDepartment}`</ResolvedValue>
@@ -1485,20 +1518,26 @@
                 <DimensionNode id="L}157">
                     <BucketIDTable></BucketIDTable>
                     <Values>-</Values>
-                    <ParentDimensionNode>L}141</ParentDimensionNode>
+                    <ParentDimensionNode>L}340</ParentDimensionNode>
                     <ChildDimensionNodes>L}177 L}261</ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}158">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}354</ParentDimensionNode>
+                    <ChildDimensionNodes>L}178</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}369">
                     <BucketIDTable>B}bbtrue</BucketIDTable>
                     <Values>true</Values>
-                    <ParentDimensionNode>L}149</ParentDimensionNode>
-                    <ChildDimensionNodes>L}178 L}187</ChildDimensionNodes>
+                    <ParentDimensionNode>L}368</ParentDimensionNode>
+                    <ChildDimensionNodes>L}370 L}377</ChildDimensionNodes>
                 </DimensionNode>
-                <DimensionNode id="L}168">
+                <DimensionNode id="L}384">
                     <BucketIDTable>B}bbfalse</BucketIDTable>
                     <Values>false</Values>
-                    <ParentDimensionNode>L}149</ParentDimensionNode>
-                    <ChildDimensionNodes>L}179</ChildDimensionNodes>
+                    <ParentDimensionNode>L}368</ParentDimensionNode>
+                    <ChildDimensionNodes>L}385</ChildDimensionNodes>
                 </DimensionNode>
                 <PrivateBucketSet id="G}36d4474c:142fd15e64b:-7bea">
                     <Visible>true</Visible>
@@ -1547,22 +1586,28 @@
                     <ChildDimensionNodes>L}262</ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}178">
-                    <BucketIDTable>B}bbtrue</BucketIDTable>
-                    <Values>true</Values>
-                    <ParentDimensionNode>L}158</ParentDimensionNode>
-                    <ChildDimensionNodes>L}204 L}214</ChildDimensionNodes>
-                </DimensionNode>
-                <DimensionNode id="L}187">
-                    <BucketIDTable>B}bbfalse</BucketIDTable>
-                    <Values>false</Values>
-                    <ParentDimensionNode>L}158</ParentDimensionNode>
-                    <ChildDimensionNodes>L}205 L}218</ChildDimensionNodes>
-                </DimensionNode>
-                <DimensionNode id="L}179">
                     <BucketIDTable></BucketIDTable>
                     <Values>-</Values>
-                    <ParentDimensionNode>L}168</ParentDimensionNode>
-                    <ChildDimensionNodes>L}206</ChildDimensionNodes>
+                    <ParentDimensionNode>L}158</ParentDimensionNode>
+                    <ChildDimensionNodes>L}204</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}370">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}369</ParentDimensionNode>
+                    <ChildDimensionNodes>L}371 L}374</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}377">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}369</ParentDimensionNode>
+                    <ChildDimensionNodes>L}378 L}381</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}385">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}384</ParentDimensionNode>
+                    <ChildDimensionNodes>L}386</ChildDimensionNodes>
                 </DimensionNode>
                 <PrivateBucketSet id="G}36d4474c:142fd15e64b:-7be8">
                     <Visible>true</Visible>
@@ -1611,33 +1656,39 @@
                     <ChildDimensionNodes></ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}204">
-                    <BucketIDTable>B}bbtrue</BucketIDTable>
-                    <Values>true</Values>
-                    <ParentDimensionNode>L}178</ParentDimensionNode>
-                    <ChildDimensionNodes></ChildDimensionNodes>
-                </DimensionNode>
-                <DimensionNode id="L}214">
-                    <BucketIDTable>B}bbfalse</BucketIDTable>
-                    <Values>false</Values>
-                    <ParentDimensionNode>L}178</ParentDimensionNode>
-                    <ChildDimensionNodes></ChildDimensionNodes>
-                </DimensionNode>
-                <DimensionNode id="L}205">
-                    <BucketIDTable>B}bbtrue</BucketIDTable>
-                    <Values>true</Values>
-                    <ParentDimensionNode>L}187</ParentDimensionNode>
-                    <ChildDimensionNodes></ChildDimensionNodes>
-                </DimensionNode>
-                <DimensionNode id="L}218">
-                    <BucketIDTable>B}bbfalse</BucketIDTable>
-                    <Values>false</Values>
-                    <ParentDimensionNode>L}187</ParentDimensionNode>
-                    <ChildDimensionNodes></ChildDimensionNodes>
-                </DimensionNode>
-                <DimensionNode id="L}206">
                     <BucketIDTable></BucketIDTable>
                     <Values>-</Values>
-                    <ParentDimensionNode>L}179</ParentDimensionNode>
+                    <ParentDimensionNode>L}178</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}371">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}370</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}374">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}370</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}378">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}377</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}381">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}377</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}386">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}385</ParentDimensionNode>
                     <ChildDimensionNodes></ChildDimensionNodes>
                 </DimensionNode>
                 <PrivateBucketSet id="G}36d4474c:142fd15e64b:-7be6">
@@ -1706,6 +1757,18 @@
                 <DTActionNode id="L}233">
                     <Selected>true</Selected>
                     <Expression id="L}246">
+                        <Value>GreetingType.SUBORDINATE</Value>
+                        <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.SUBORDINATE`</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>response</ParameterAlias>
+                        <ParameterID>J}org.example.Greeting.{response}</ParameterID>
+                        <DTActionParameterName>response</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}373">
+                    <Selected>true</Selected>
+                    <Expression id="L}401">
                         <Value>GreetingType.SUBORDINATE_SENPAI</Value>
                         <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.SUBORDINATE_SENPAI`</ResolvedValue>
                         <IsConstant>false</IsConstant>
@@ -1715,9 +1778,9 @@
                         <Customizable>false</Customizable>
                     </Expression>
                 </DTActionNode>
-                <DTActionNode id="L}234">
+                <DTActionNode id="L}376">
                     <Selected>true</Selected>
-                    <Expression id="L}247">
+                    <Expression id="L}402">
                         <Value>GreetingType.SENPAI</Value>
                         <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.SENPAI`</ResolvedValue>
                         <IsConstant>false</IsConstant>
@@ -1727,9 +1790,9 @@
                         <Customizable>false</Customizable>
                     </Expression>
                 </DTActionNode>
-                <DTActionNode id="L}235">
+                <DTActionNode id="L}380">
                     <Selected>true</Selected>
-                    <Expression id="L}248">
+                    <Expression id="L}403">
                         <Value>GreetingType.SENIOR_TEAMATE</Value>
                         <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.SENIOR_TEAMATE`</ResolvedValue>
                         <IsConstant>false</IsConstant>
@@ -1739,9 +1802,9 @@
                         <Customizable>false</Customizable>
                     </Expression>
                 </DTActionNode>
-                <DTActionNode id="L}236">
+                <DTActionNode id="L}383">
                     <Selected>true</Selected>
-                    <Expression id="L}249">
+                    <Expression id="L}404">
                         <Value>GreetingType.JUNIOR_TEAMATE</Value>
                         <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.JUNIOR_TEAMATE`</ResolvedValue>
                         <IsConstant>false</IsConstant>
@@ -1751,9 +1814,9 @@
                         <Customizable>false</Customizable>
                     </Expression>
                 </DTActionNode>
-                <DTActionNode id="L}237">
+                <DTActionNode id="L}388">
                     <Selected>true</Selected>
-                    <Expression id="L}250">
+                    <Expression id="L}405">
                         <Value>GreetingType.GRUNT</Value>
                         <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.GRUNT`</ResolvedValue>
                         <IsConstant>false</IsConstant>
@@ -1788,37 +1851,45 @@
                 <RunAfter></RunAfter>
                 <CreationUpdateNumber>14</CreationUpdateNumber>
             </DTRule>
-            <DTRule id="L}215">
+            <DTRule id="L}372">
                 <Override></Override>
                 <RunBefore></RunBefore>
                 <NoConflict></NoConflict>
                 <OverriddenBy></OverriddenBy>
                 <RunAfter></RunAfter>
-                <CreationUpdateNumber>29</CreationUpdateNumber>
+                <CreationUpdateNumber>59</CreationUpdateNumber>
             </DTRule>
-            <DTRule id="L}188">
+            <DTRule id="L}375">
                 <Override></Override>
                 <RunBefore></RunBefore>
                 <NoConflict></NoConflict>
                 <OverriddenBy></OverriddenBy>
                 <RunAfter></RunAfter>
-                <CreationUpdateNumber>23</CreationUpdateNumber>
+                <CreationUpdateNumber>59</CreationUpdateNumber>
             </DTRule>
-            <DTRule id="L}219">
+            <DTRule id="L}379">
                 <Override></Override>
                 <RunBefore></RunBefore>
                 <NoConflict></NoConflict>
                 <OverriddenBy></OverriddenBy>
                 <RunAfter></RunAfter>
-                <CreationUpdateNumber>30</CreationUpdateNumber>
+                <CreationUpdateNumber>59</CreationUpdateNumber>
             </DTRule>
-            <DTRule id="L}169">
+            <DTRule id="L}382">
                 <Override></Override>
                 <RunBefore></RunBefore>
                 <NoConflict></NoConflict>
                 <OverriddenBy></OverriddenBy>
                 <RunAfter></RunAfter>
-                <CreationUpdateNumber>19</CreationUpdateNumber>
+                <CreationUpdateNumber>59</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}387">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>59</CreationUpdateNumber>
             </DTRule>
             <AllowGaps>true</AllowGaps>
             <ConflictPolicy>manual</ConflictPolicy>
@@ -1827,7 +1898,7 @@
         <VisibilityFilterEnabled>false</VisibilityFilterEnabled>
         <CreationUpdateNumber>4</CreationUpdateNumber>
     </RuleSet>
-    <ValidationUpdateNumber>50</ValidationUpdateNumber>
-    <UpdateNumber>50</UpdateNumber>
+    <ValidationUpdateNumber>66</ValidationUpdateNumber>
+    <UpdateNumber>66</UpdateNumber>
     <ResourceBundle>HelloRulesTranslations</ResourceBundle>
 </RuleDictionary>
