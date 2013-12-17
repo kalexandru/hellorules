@@ -6,15 +6,14 @@
   <xsd:element name="criteria">
     <xsd:complexType>
       <xsd:sequence>
-                <xsd:element name="TopSalary" type="xsd:boolean"/>
+                <xsd:element name="MeTopSalary" type="xsd:boolean"/>
+                <xsd:element name="OtherTopSalary" type="xsd:boolean"/>
                 <xsd:element name="SameDepartment" type="xsd:boolean"/>
                 <xsd:element name="Manager" type="xsd:boolean"/>
                 <xsd:element name="DirectManager" type="xsd:boolean"/>
                 <xsd:element name="Subordinate" type="xsd:boolean"/>
                 <xsd:element name="HireDatePrior" type="xsd:boolean"/>
                 <xsd:element name="SalaryHiger" type="xsd:boolean"/>
-                <xsd:element name="MySalary" type="xsd:decimal"/>
-                <xsd:element name="OtherSalary" type="xsd:decimal"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
@@ -31,6 +30,7 @@
             <xsd:enumeration value="Honorable Senpai"/>
             <xsd:enumeration value="Honorable Kohai"/>
             <xsd:enumeration value="Subordinate Senpai"/>
+            <xsd:enumeration value="Subordinate"/>
             <xsd:enumeration value="Senpai"/>
             <xsd:enumeration value="Kohai"/> 
             <xsd:enumeration value="Senior Teamate"/>
