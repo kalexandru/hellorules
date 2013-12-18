@@ -1372,21 +1372,21 @@
             <RuleFiringLimit>10000</RuleFiringLimit>
             <RuleFiringLimitError>true</RuleFiringLimitError>
         </DecisionFunction>
-        <UpdateNumber>54</UpdateNumber>
-        <ValidationUpdateNumber>54</ValidationUpdateNumber>
+        <UpdateNumber>70</UpdateNumber>
+        <ValidationUpdateNumber>70</ValidationUpdateNumber>
         <UpdateTime>-9223372036854775808</UpdateTime>
     </DataModel>
     <RuleSet id="G}36d4474c:142fd15e64b:-7bf2">
         <Name>GreetingRuleSet</Name>
         <Alias>GreetingRuleSet</Alias>
-        <ValidationUpdateNumber>66</ValidationUpdateNumber>
+        <ValidationUpdateNumber>73</ValidationUpdateNumber>
         <Customizable>true</Customizable>
         <Active>true</Active>
         <CalendarForm>DateTime</CalendarForm>
         <RuleSheet id="G}36d4474c:142fd15e64b:-7bed">
             <Name>HelloRules</Name>
             <Alias>HelloRules</Alias>
-            <ValidationUpdateNumber>66</ValidationUpdateNumber>
+            <ValidationUpdateNumber>73</ValidationUpdateNumber>
             <Priority>medium</Priority>
             <Customizable>true</Customizable>
             <Active>true</Active>
@@ -1421,7 +1421,7 @@
                     <BucketIDTable>B}bbtrue</BucketIDTable>
                     <Values>true</Values>
                     <ParentDimensionNode>B}nil</ParentDimensionNode>
-                    <ChildDimensionNodes>L}340</ChildDimensionNodes>
+                    <ChildDimensionNodes>L}340 L}409</ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}149">
                     <BucketIDTable>B}bbfalse</BucketIDTable>
@@ -1464,10 +1464,16 @@
                 <Customizable>false</Customizable>
                 <IDofSharedBucketSet>B}bbs</IDofSharedBucketSet>
                 <DimensionNode id="L}340">
-                    <BucketIDTable></BucketIDTable>
-                    <Values>-</Values>
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
                     <ParentDimensionNode>L}141</ParentDimensionNode>
                     <ChildDimensionNodes>L}157</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}409">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}141</ParentDimensionNode>
+                    <ChildDimensionNodes>L}410</ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}354">
                     <BucketIDTable>B}bbtrue</BucketIDTable>
@@ -1521,6 +1527,12 @@
                     <ParentDimensionNode>L}340</ParentDimensionNode>
                     <ChildDimensionNodes>L}177 L}261</ChildDimensionNodes>
                 </DimensionNode>
+                <DimensionNode id="L}410">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}409</ParentDimensionNode>
+                    <ChildDimensionNodes>L}411 L}415</ChildDimensionNodes>
+                </DimensionNode>
                 <DimensionNode id="L}158">
                     <BucketIDTable></BucketIDTable>
                     <Values>-</Values>
@@ -1567,8 +1579,8 @@
                 <SharedBucketSet>boolean</SharedBucketSet>
             </Dimension>
             <Dimension id="L}176">
-                <Value>criteria.manager</Value>
-                <ResolvedValue>`L}134`.`J}org.example.Criteria.{manager}`</ResolvedValue>
+                <Value>criteria.directManager</Value>
+                <ResolvedValue>`L}134`.`J}org.example.Criteria.{directManager}`</ResolvedValue>
                 <IsConstant>false</IsConstant>
                 <ParameterID>B}nil</ParameterID>
                 <Customizable>false</Customizable>
@@ -1583,7 +1595,19 @@
                     <BucketIDTable>B}bbfalse</BucketIDTable>
                     <Values>false</Values>
                     <ParentDimensionNode>L}157</ParentDimensionNode>
-                    <ChildDimensionNodes>L}262</ChildDimensionNodes>
+                    <ChildDimensionNodes>L}262 L}430</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}411">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}410</ParentDimensionNode>
+                    <ChildDimensionNodes>L}412</ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}415">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}410</ParentDimensionNode>
+                    <ChildDimensionNodes>L}416</ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}178">
                     <BucketIDTable></BucketIDTable>
@@ -1650,9 +1674,27 @@
                     <ChildDimensionNodes></ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}262">
+                    <BucketIDTable>B}bbtrue</BucketIDTable>
+                    <Values>true</Values>
+                    <ParentDimensionNode>L}261</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}430">
+                    <BucketIDTable>B}bbfalse</BucketIDTable>
+                    <Values>false</Values>
+                    <ParentDimensionNode>L}261</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}412">
                     <BucketIDTable></BucketIDTable>
                     <Values>-</Values>
-                    <ParentDimensionNode>L}261</ParentDimensionNode>
+                    <ParentDimensionNode>L}411</ParentDimensionNode>
+                    <ChildDimensionNodes></ChildDimensionNodes>
+                </DimensionNode>
+                <DimensionNode id="L}416">
+                    <BucketIDTable></BucketIDTable>
+                    <Values>-</Values>
+                    <ParentDimensionNode>L}415</ParentDimensionNode>
                     <ChildDimensionNodes></ChildDimensionNodes>
                 </DimensionNode>
                 <DimensionNode id="L}204">
@@ -1745,6 +1787,42 @@
                 <DTActionNode id="L}264">
                     <Selected>true</Selected>
                     <Expression id="L}267">
+                        <Value>GreetingType.HONORABLE_SENPAI</Value>
+                        <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_SENPAI`</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>response</ParameterAlias>
+                        <ParameterID>J}org.example.Greeting.{response}</ParameterID>
+                        <DTActionParameterName>response</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}432">
+                    <Selected>true</Selected>
+                    <Expression id="L}437">
+                        <Value>GreetingType.HONORABLE_KOHAI</Value>
+                        <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_KOHAI`</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>response</ParameterAlias>
+                        <ParameterID>J}org.example.Greeting.{response}</ParameterID>
+                        <DTActionParameterName>response</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}414">
+                    <Selected>true</Selected>
+                    <Expression id="L}428">
+                        <Value>GreetingType.HONORABLE_SENPAI</Value>
+                        <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_SENPAI`</ResolvedValue>
+                        <IsConstant>false</IsConstant>
+                        <ParameterAlias>response</ParameterAlias>
+                        <ParameterID>J}org.example.Greeting.{response}</ParameterID>
+                        <DTActionParameterName>response</DTActionParameterName>
+                        <Customizable>false</Customizable>
+                    </Expression>
+                </DTActionNode>
+                <DTActionNode id="L}418">
+                    <Selected>true</Selected>
+                    <Expression id="L}429">
                         <Value>GreetingType.HONORABLE_KOHAI</Value>
                         <ResolvedValue>`G}36d4474c:142fd15e64b:-7bfc`.`J}public static final org.example.GreetingType org.example.GreetingType.HONORABLE_KOHAI`</ResolvedValue>
                         <IsConstant>false</IsConstant>
@@ -1843,6 +1921,30 @@
                 <RunAfter></RunAfter>
                 <CreationUpdateNumber>47</CreationUpdateNumber>
             </DTRule>
+            <DTRule id="L}431">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>71</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}413">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>67</CreationUpdateNumber>
+            </DTRule>
+            <DTRule id="L}417">
+                <Override></Override>
+                <RunBefore></RunBefore>
+                <NoConflict></NoConflict>
+                <OverriddenBy></OverriddenBy>
+                <RunAfter></RunAfter>
+                <CreationUpdateNumber>67</CreationUpdateNumber>
+            </DTRule>
             <DTRule id="L}150">
                 <Override></Override>
                 <RunBefore></RunBefore>
@@ -1898,7 +2000,7 @@
         <VisibilityFilterEnabled>false</VisibilityFilterEnabled>
         <CreationUpdateNumber>4</CreationUpdateNumber>
     </RuleSet>
-    <ValidationUpdateNumber>66</ValidationUpdateNumber>
-    <UpdateNumber>66</UpdateNumber>
+    <ValidationUpdateNumber>73</ValidationUpdateNumber>
+    <UpdateNumber>73</UpdateNumber>
     <ResourceBundle>HelloRulesTranslations</ResourceBundle>
 </RuleDictionary>
