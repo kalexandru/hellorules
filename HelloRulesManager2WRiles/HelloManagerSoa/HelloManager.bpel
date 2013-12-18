@@ -172,7 +172,7 @@
                 <to variable="Criteria" query="/ns3:criteria/ns3:Manager"/>
             </copy>
             <copy>
-                <from expression="bpws:getVariableData('InvokeGetOthersData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:ManagerId') = bpws:getVariableData('inputVariable','payload','/client:process/client:MyEmployeeID')"/>
+                <from expression="bpws:getVariableData('InvokeGetMyData_OutputVariable','parameters','/ns2:getEmployeesView1Response/ns2:result/ns1:ManagerId') = bpws:getVariableData('inputVariable','payload','/client:process/client:OtherEmployeeID')"/>
                 <to variable="Criteria"
                     query="/ns3:criteria/ns3:DirectManager"/>
             </copy>
@@ -186,12 +186,12 @@
                 <to variable="Criteria" query="/ns3:criteria/ns3:SalaryHiger"/>
             </copy>
         </assign>
-        <assign name="TransformToHelloRules">
+        <assign name="TransformToRule">
             <bpelx:annotation>
                 <bpelx:pattern>transformation</bpelx:pattern>
             </bpelx:annotation>
             <copy>
-                <from expression="ora:doXSLTransformForDoc('xsl/Transformation_CriteriaToHelloRules.xsl', $Criteria)"/>
+                <from expression="ora:doXSLTransformForDoc('xsl/TransformToRule.xsl', $Criteria)"/>
                 <to variable="InvokeHelloRules_InputVariable" part="payload"/>
             </copy>
         </assign>

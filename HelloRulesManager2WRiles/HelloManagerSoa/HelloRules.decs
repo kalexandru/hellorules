@@ -19,7 +19,7 @@
         </pattern>
     </decisionService>
     <schemaInformation>
-        <dictionary fqnPackage="hellomanagersoa" fqnName="HelloRules" updateNumber="46">
+        <dictionary fqnPackage="hellomanagersoa" fqnName="HelloRules" updateNumber="73">
             <schemaBrowser>
                 <package>org.example</package>
                 <namespace>http://www.example.org</namespace>
