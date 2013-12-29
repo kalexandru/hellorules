@@ -20,9 +20,6 @@
             <import namespace="http://xmlns.oracle.com/HelloManagerApp/HelloManagerSoa/HelloManager"
                  schemaLocation="xsd/HelloManager.xsd"/>
         </schema>
-        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <xsd:import namespace="http://www.example.org" schemaLocation="xsd/criteria.xsd"/>
-        </xsd:schema>
     </wsdl:types>
     <wsdl:message name="HelloManagerRequestMessage">
         <wsdl:part name="payload" element="client:process"/>
