@@ -1,5 +1,5 @@
 
-Hello World Using Oracle Rules xxx xxx yyy
+Hello World Using Oracle Rules xxx xxx yyy zzz
 
 A lesson in convuluted Business logic (and planning)
 
@@ -8,7 +8,7 @@ A lesson in convuluted Business logic (and planning)
 
 2. I am in the top 10 Salary
 
-3. Same Department
+3. Same Department 
 
 4. Manager/Subordinate
 
