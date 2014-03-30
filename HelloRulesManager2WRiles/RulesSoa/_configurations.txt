@@ -1,5 +1,5 @@
 
-Hello World Using Oracle Rules yyyyy
+Hello World Using Oracle Rules yyyyy yyy
 
 A lesson in convuluted Business logic (and planning)
 
